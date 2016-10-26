@@ -11,14 +11,33 @@ module Control_TB;
     always #1 clk = ~clk; 
 
     initial begin
-        #1000000
+        #10000
         $finish;
     end
 
     initial begin
-    rst = 1'b0;
+    rst = 1'b1;
+    ready_command = 1'b1;
     #10
     ready_command = 1'b0;
+    #30
+    ready_command = 1'b1;
+    #10
+    ready_command = 1'b0;
+    #30
+    ready_command = 1'b1;
+    #10
+    ready_command = 1'b0;
+    #30
+    ready_command = 1'b1;
+    #10
+    ready_command = 1'b0;
+    #30
+    ready_command = 1'b1;
+    #10
+    ready_command = 1'b0;
+    #30
+    ready_command = 1'b1;
     end
 
    initial begin
