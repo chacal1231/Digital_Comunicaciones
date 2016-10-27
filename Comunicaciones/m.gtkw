@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Sat Oct 22 14:10:11 2016
+[*]
+[dumpfile] "/home/mcmahonpc/Desktop/Matrix Creator/Comunicaciones/simulation/Comunicaciones_TB.vcd"
+[dumpfile_mtime] "Sat Oct 22 14:00:57 2016"
+[dumpfile_size] 15703708
+[savefile] "/home/mcmahonpc/Desktop/Matrix Creator/Comunicaciones/m.gtkw"
+[timestart] 2768000000
+[size] 1301 744
+[pos] -1 -1
+*-29.086704 3004000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Comunicaciones_TB.
+[sst_width] 223
+[signals_width] 163
+[sst_expanded] 1
+[sst_vpaned_height] 211
+@28
+Comunicaciones_TB.inst1.clk
+Comunicaciones_TB.inst1.state[2:0]
+@22
+Comunicaciones_TB.inst1.Data[7:0]
+Comunicaciones_TB.inst1.CrrCh[7:0]
+Comunicaciones_TB.inst1.RegCommand[7:0]
+@28
+Comunicaciones_TB.inst1.tx
+Comunicaciones_TB.inst1.rst
+@29
+Comunicaciones_TB.inst1.str
+[pattern_trace] 1
+[pattern_trace] 0

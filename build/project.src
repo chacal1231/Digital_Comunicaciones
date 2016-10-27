@@ -1,4 +1,6 @@
-verilog work ../Comunicaciones.v
-verilog work ../baudgen.v
-verilog work ../uart_rx.v
-verilog work ../uart_tx.v
+verilog work ../TOP.v
+verilog work ../../baudgen.v
+verilog work ../../uart_rx.v
+verilog work ../../uart_tx.v
+verilog work ../../Comunicaciones.v
+verilog work ../../Control/Control.v
