@@ -2,12 +2,11 @@
 `define SIMULATION
 
 module TOP_TB;
-    reg clk = 1'b0, rst, str;
-    reg [7:0] command;
-    wire rx, tx, ready_command;
+    reg clk = 1'b0;
+    wire tx;
 
     TOP 
-        inst1(rst, clk, tx, command_in);
+        inst1(clk, tx);
 
     always #1 clk = ~clk; 
 

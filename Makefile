@@ -11,7 +11,7 @@ SIMGEN_OPTIONS  = -p $(FPGA_ARCH) -lang $(LANGUAGE)
 IVERILOG        = iverilog
 IP		= 192.168.1.20
 
-SRC=		$(DESIGN).v Comunicaciones/baudgen.v Comunicaciones/uart_rx.v Comunicaciones/uart_tx.v Comunicaciones/Comunicaciones.v Comunicaciones/Control/Control.v \
+SRC=		$(DESIGN).v Comunicaciones/baudgen.v Comunicaciones/uart_rx.v Comunicaciones/uart_tx.v Comunicaciones/Comunicaciones.v Control/Control.v \
 
 
 SIM_SRC = $(DESIGN)_TB.v          \

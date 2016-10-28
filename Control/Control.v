@@ -1,6 +1,6 @@
 module Control(	input wire clk,
 				input wire rst,
-				output reg [2:0] command_1 = 1'b0,
+				output reg [2:0] command_1 = 3'b0,
 				output reg start,
 				input wire ready_command);
 

@@ -1,4 +1,14 @@
-`include "baudgen.vh"
+// 50MHz External Clock
+`define B115200 434
+`define B57600  868
+`define B38400  1302
+`define B19200  2604
+`define B9600   5208
+`define B4800   10417
+`define B2400   20833
+`define B1200   41667
+`define B600    83333
+`define B300    166667
 `default_nettype none
 
 
@@ -6,7 +16,7 @@ module Comunicaciones ( input wire clk,
 						input wire rst,
 						input [7:0] command,
 						output tx,
-						output reg ready_command=1'b1,
+						output reg ready_command,
 						input str
 	);
 
@@ -32,13 +42,13 @@ module Comunicaciones ( input wire clk,
 	//Memoria ROM para comandos
 	reg [7:0] romMen_commandos [0:127];
 	initial begin
-		$readmemh("comandos.list", romMen_commandos);
+		$readmemh("Comunicaciones/comandos.list", romMen_commandos);
 	end
 
 	//Memoria ROM para direcciones
 	reg [7:0] romMen_direcciones [0:15];
 	initial begin
-		$readmemh("direcciones.list", romMen_direcciones);
+		$readmemh("Comunicaciones/direcciones.list", romMen_direcciones);
 	end
 	//Instanciar UART_TX
 	wire [7:0] data_send_u;
@@ -90,6 +100,7 @@ module Comunicaciones ( input wire clk,
 						state=WAIT_COMM;
 					end else begin
 						if(Data==8'h0a)begin
+							ready_command = 1'b1;
 							state=IDDLE;
 						end else begin // (6)
 							CrrCh = CrrCh + 1;
