@@ -9,26 +9,25 @@
 `define B1200   41667
 `define B600    83333
 `define B300    166667
-`default_nettype none
-
 
 module Comunicaciones ( input wire clk,
 						input wire rst,
-						input [7:0] command,
-						output tx,
+						input wire [7:0] command,
+						output wire tx,
 						output reg ready_command,
-						input str
+						input wire str
 	);
 
 	//Velocidad de transmision
 	parameter BAUD =  `B115200;
 
 	//Parametros estados
-	parameter ready = 0;
-	reg [7:0] RegCommand = 0;
-	reg [7:0] MemPost = 0;
-	reg [7:0] CrrCh = 0;
-	reg [7:0] Data = 0;
+	reg [7:0] RegCommand 	= 0;
+	reg [7:0] MemPost 		= 0;
+	reg [7:0] CrrCh 		= 0;
+	reg [7:0] Data 			= 0;
+	reg start 				= 1'b0;
+	reg [24:0] timer		= 25'd0;
 
 	localparam IDDLE = 		3'b000;
 	localparam SAVE_COMM = 	3'b001;
@@ -38,6 +37,8 @@ module Comunicaciones ( input wire clk,
 	localparam ADD_CHAR = 	3'b101;
 
 	reg [2:0] state = IDDLE;
+	reg stop;
+	reg start_uart = 1'b0;
 
 	//Memoria ROM para comandos
 	reg [7:0] romMen_commandos [0:127];
@@ -54,27 +55,28 @@ module Comunicaciones ( input wire clk,
 	wire [7:0] data_send_u;
 	wire ready_u;
 	assign data_send_u = Data;
-	reg start = 0;
-	
+
 	uart_tx #(.BAUD(BAUD))
 	  TX0 (
 	    .clk(clk), //Señal de reloj matrix
 	    .rstn(rst), //Reset del protocolo
 	    .data(data_send_u), //Datos a enviar
-	    .start(start),  // Activar a 1 para transmitir
+	    .start(start_uart),  // Activar a 1 para transmitir
 	    .ready(ready_u), // 1 para reposo (Listos para transmitir) 0 para acabar
 	    .tx(tx) //-- Salida de datos serie (hacia el PC)
 	  );
 
-	always @(posedge clk, posedge rst) begin
+	always @(posedge clk, negedge rst) begin
 		if(!rst)begin
 			state = IDDLE;
 		end else begin
 			case(state)
 					IDDLE: begin
+						timer = 25'd25000000;
 						if(str==1'b1) begin //(1)
 							RegCommand = command;
 							state=SAVE_COMM;
+							start_uart = 1'b1;
 							ready_command = 1'b0;
 						end else begin //(0)
 							ready_command = 1'b1;
@@ -87,21 +89,25 @@ module Comunicaciones ( input wire clk,
 				end
 				READ_MEM: begin //(3)
 					Data = romMen_commandos[CrrCh];
-					start = 1;
+					start = 1'b1;
 					state = START_SEND;
 				end
 				START_SEND: begin //(4)
-					start = 0;
+					start = 1'b0;
 					state = WAIT_COMM;
-					//ready = 1;
 				end
 				WAIT_COMM: begin 
 					if(ready_u==0)begin //(5)
 						state=WAIT_COMM;
 					end else begin
 						if(Data==8'h0a)begin
-							ready_command = 1'b1;
-							state=IDDLE;
+								if(timer>0) begin
+									timer = timer - 25'd1;
+									ready_command = 1'b1;
+									start_uart = 1'b0;	
+								end else begin
+								state = IDDLE;
+							end	
 						end else begin // (6)
 							CrrCh = CrrCh + 1;
 							state = READ_MEM;
@@ -109,11 +115,17 @@ module Comunicaciones ( input wire clk,
 					end
 				end
 				ADD_CHAR: begin //(7)
-						start = 1;
+						start = 1'b1;
 						state = START_SEND;
 				end
-				default:
-						state = IDDLE;
+				default: begin
+						state 			= IDDLE;
+						RegCommand		= 7'd0;
+						MemPost			= 7'd0;	
+						CrrCh			= 7'd0;
+						Data 			= 7'd0;
+						start           = 1'b0;	
+				end
 			endcase
 		end
 	end

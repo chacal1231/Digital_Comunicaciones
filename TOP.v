@@ -1,8 +1,8 @@
 module TOP( clk,
 			tx);
 
-input wire clk;
-output wire tx;
+input clk;
+output tx;
 wire [2:0] command_in;
 wire ready_command1;
 

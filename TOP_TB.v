@@ -11,12 +11,12 @@ module TOP_TB;
     always #1 clk = ~clk; 
 
     initial begin
-        #600000
+        #1000000
         $finish;
     end
 
     initial begin
-
+    
     end
 
    initial begin

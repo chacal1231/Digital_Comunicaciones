@@ -14,25 +14,25 @@ localparam S_TIMER 		= 	3'b100;
 
 reg [2:0] state = S_INIT;
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk or negedge rst) begin
 	if (!rst) begin
 		state = S_INIT;
 	end else begin
 		case(state)
 			S_INIT: begin
-				timer = 25'd5;
+				timer = 25'd25000000;
 				start = 1'b1;
 				state = S_SEND;
 			end
 			S_SEND: begin
-				if(ready_command==1'b1)begin
+				if(ready_command==1'b1) begin
 					state = S_SEND;
 				end else begin
 					state = S_WAITCOM;
 				end
 			end
 			S_WAITCOM: begin
-					if(ready_command == 1'b0) begin
+					if(ready_command==1'b0) begin
 						state = S_WAITCOM;
 					end else begin
 						state = S_TIMER;
@@ -43,15 +43,23 @@ always @(posedge clk or posedge rst) begin
 					timer = timer - 25'd1;
 					state = S_TIMER;
 				end else begin
-					command_1 = command_1 + 1;
+					start = 1'b0;
 					state = S_INIT;
+					if(command_1 == 3'd4) begin
+						command_1 = 3'd0;
+					end else begin
+						command_1 = command_1 + 1;
+					end
+					
 				end
 			end
 			default: begin
-				state = S_INIT;
+				state 		= S_INIT;
+				timer 		= 25'd0;
+				command_1	= 3'd0;
+				start 		= 1'b0;
 			end
 		endcase
 	end
 end
-
 endmodule

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Control/Control.v" Line 51: Result of <arg fmt="%d" index="1">4</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">3</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1670" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/Comunicaciones.v" Line 46: Signal &lt;<arg fmt="%s" index="1">romMen_commandos</arg>&gt; in initial block is partially initialized.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1670" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/Comunicaciones.v" Line 52: Signal &lt;<arg fmt="%s" index="1">romMen_direcciones</arg>&gt; in initial block is partially initialized.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/uart_tx.v" Line 99: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/baudgen.v" Line 66: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">9</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/baudgen.v" Line 74: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/uart_tx.v" Line 159: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/uart_tx.v" Line 160: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/uart_tx.v" Line 164: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/Comunicaciones.v" Line 112: Result of <arg fmt="%d" index="1">9</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">8</arg>-bit target.
+</msg>
+
+<msg type="warning" file="Xst" num="2999" delta="new" >Signal &apos;<arg fmt="%s" index="1">romMen_commandos</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">Comunicaciones</arg>&apos;, is tied to its initial value.
+</msg>
+
+<msg type="warning" file="Xst" num="2999" delta="new" >Signal &apos;<arg fmt="%s" index="1">romMen_direcciones</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">Comunicaciones</arg>&apos;, is tied to its initial value.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">RegCommand_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">com1</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">RegCommand_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">com1</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">RegCommand_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">com1</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">RegCommand_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">com1</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="3226" delta="new" >The RAM &lt;<arg fmt="%s" index="1">Mram_romMen_commandos</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="info" file="Xst" num="3226" delta="new" >The RAM &lt;<arg fmt="%s" index="1">Mram_romMen_direcciones</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">CrrCh_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Comunicaciones</arg>&gt;.
+</msg>
+
+</messages>
+
