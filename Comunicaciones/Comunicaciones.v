@@ -27,7 +27,7 @@ module Comunicaciones ( input wire clk,
 	reg [7:0] CrrCh 		= 0;
 	reg [7:0] Data 			= 0;
 	reg start 				= 1'b0;
-	reg [24:0] timer		= 25'd0;
+	reg [27:0] timer		= 28'd0;
 
 	localparam IDDLE = 		3'b000;
 	localparam SAVE_COMM = 	3'b001;
@@ -72,7 +72,7 @@ module Comunicaciones ( input wire clk,
 		end else begin
 			case(state)
 					IDDLE: begin
-						timer = 25'd25000000;
+						timer = 28'd200000000;
 						if(str==1'b1) begin //(1)
 							RegCommand = command;
 							state=SAVE_COMM;
@@ -81,6 +81,7 @@ module Comunicaciones ( input wire clk,
 						end else begin //(0)
 							ready_command = 1'b1;
 							state=IDDLE;
+							start_uart = 1'b0;
 						end
 					end
 				SAVE_COMM: begin //(2)
@@ -102,7 +103,7 @@ module Comunicaciones ( input wire clk,
 					end else begin
 						if(Data==8'h0a)begin
 								if(timer>0) begin
-									timer = timer - 25'd1;
+									timer = timer - 28'd1;
 									ready_command = 1'b1;
 									start_uart = 1'b0;	
 								end else begin
@@ -124,7 +125,9 @@ module Comunicaciones ( input wire clk,
 						MemPost			= 7'd0;	
 						CrrCh			= 7'd0;
 						Data 			= 7'd0;
-						start           = 1'b0;	
+						start           = 1'b0;
+						start_uart 		= 1'b0;	
+						timer 			= 28'd0;
 				end
 			endcase
 		end

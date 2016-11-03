@@ -32,7 +32,7 @@
 <msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/uart_tx.v" Line 164: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/Comunicaciones.v" Line 112: Result of <arg fmt="%d" index="1">9</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">8</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Comunicaciones/Comunicaciones.v" Line 113: Result of <arg fmt="%d" index="1">9</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">8</arg>-bit target.
 </msg>
 
 <msg type="warning" file="Xst" num="2999" delta="new" >Signal &apos;<arg fmt="%s" index="1">romMen_commandos</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">Comunicaciones</arg>&apos;, is tied to its initial value.
@@ -58,6 +58,12 @@
 <msg type="info" file="Xst" num="3226" delta="new" >The RAM &lt;<arg fmt="%s" index="1">Mram_romMen_direcciones</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">CrrCh_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Comunicaciones</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">command_1_2</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">Control</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">command_1_2</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">Control</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 </messages>

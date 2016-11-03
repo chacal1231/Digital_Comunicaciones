@@ -9,7 +9,7 @@ XILINXCADROOT   = /opt/cad/Xilinx/14.4/ISE_DS/ISE/
 SIM_COMP_SCRIPT = simulation/$(DESIGN)_TB.do
 SIMGEN_OPTIONS  = -p $(FPGA_ARCH) -lang $(LANGUAGE)
 IVERILOG        = iverilog
-IP		= 192.168.1.20
+IP		= 192.168.10.231
 
 SRC=		$(DESIGN).v Comunicaciones/baudgen.v Comunicaciones/uart_rx.v Comunicaciones/uart_tx.v Comunicaciones/Comunicaciones.v Control/Control.v \
 

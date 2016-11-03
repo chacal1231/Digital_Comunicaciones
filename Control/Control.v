@@ -4,7 +4,7 @@ module Control(	input wire clk,
 				output reg start,
 				input wire ready_command);
 
-reg [24:0] timer;
+reg [27:0] timer;
 
 //Parametros maquina de estados
 localparam S_INIT		=  	3'b000;
@@ -20,7 +20,7 @@ always @(posedge clk or negedge rst) begin
 	end else begin
 		case(state)
 			S_INIT: begin
-				timer = 25'd25000000;
+				timer = 28'd200000000;
 				start = 1'b1;
 				state = S_SEND;
 			end
@@ -40,14 +40,14 @@ always @(posedge clk or negedge rst) begin
 			end
 			S_TIMER: begin
 				if(timer>0)begin
-					timer = timer - 25'd1;
+					timer = timer - 28'd1;
 					state = S_TIMER;
 				end else begin
 					start = 1'b0;
-					state = S_INIT;
-					if(command_1 == 3'd4) begin
-						command_1 = 3'd0;
+					if(command_1 == 3'd3) begin
+						start = 1'b0;
 					end else begin
+						state = S_INIT;
 						command_1 = command_1 + 1;
 					end
 					
@@ -55,7 +55,7 @@ always @(posedge clk or negedge rst) begin
 			end
 			default: begin
 				state 		= S_INIT;
-				timer 		= 25'd0;
+				timer 		= 28'd0;
 				command_1	= 3'd0;
 				start 		= 1'b0;
 			end
