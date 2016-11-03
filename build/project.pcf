@@ -1,9 +1,9 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Nov 02 18:54:16 2016
+// Written by: Map P.20131013 on Thu Nov 03 17:29:04 2016
 //! **************************************************************************
 
 SCHEMATIC START;
+COMP "tx" LOCATE = SITE "P78" LEVEL 1;
 COMP "clk" LOCATE = SITE "P84" LEVEL 1;
-COMP "tx" LOCATE = SITE "P70" LEVEL 1;
 SCHEMATIC END;
 

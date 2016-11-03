@@ -4,9 +4,10 @@ module TOP( clk,
 input clk;
 output tx;
 wire [2:0] command_in;
-wire ready_command1;
+wire ready_command1, start_datos;
+reg [7:0] datos = 8'h30;
 
-wire rst,start;
+wire rst,start,tx_1,tx_2;
 assign rst = 1'b1;
 
 
@@ -15,17 +16,26 @@ Control control1(	.clk(clk),
 					.rst(rst), 
 					.command_1(command_in), 
 					.start(start), 
-					.ready_command(ready_command1)
+					.ready_command(ready_command1),
+					.start_datos(start_datos)
 				); 
 
 //Instanciar módulo comunicaciones
 Comunicaciones com1(.clk(clk), 
 					.rst(rst), 
 					.command({5'd0,command_in}), 
-					.tx(tx), 
+					.tx(tx_1), 
 					.ready_command(ready_command1), 
 					.str(start)
-				); 
+				);
 
+EnviarDatos envi(	.clk(clk),
+					.rst(rst),
+					.start(start_datos),
+					.datos(datos),
+					.tx(tx_2)
+				);
+
+assign tx = (start_datos) ? tx_2: tx_1;
 
 endmodule

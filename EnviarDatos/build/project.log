@@ -1,0 +1,494 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "project.src"
+Input Format                       : mixed
+
+---- Target Parameters
+Target Device                      : xc6slx4-2tqg144
+Output File Name                   : "project.ngc"
+Output Format                      : NGC
+
+---- Source Options
+Top Module Name                    : EnviarDatos
+
+---- General Options
+Optimization Goal                  : Area
+Optimization Effort                : 1
+RTL Output                         : yes
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/EnviarDatos.v" into library work
+Parsing module <EnviarDatos>.
+Analyzing Verilog file "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/baudgen.v" into library work
+Parsing module <baudgen>.
+Analyzing Verilog file "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/uart_rx.v" into library work
+Parsing module <uart_rx>.
+Analyzing Verilog file "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/uart_tx.v" into library work
+Parsing module <uart_tx>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <EnviarDatos>.
+
+Elaborating module <uart_tx(BAUD=434)>.
+WARNING:HDLCompiler:413 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/uart_tx.v" Line 99: Result of 5-bit expression is truncated to fit in 4-bit target.
+
+Elaborating module <baudgen(M=434)>.
+WARNING:HDLCompiler:413 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/baudgen.v" Line 66: Result of 32-bit expression is truncated to fit in 9-bit target.
+WARNING:HDLCompiler:413 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/baudgen.v" Line 74: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/uart_tx.v" Line 159: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/uart_tx.v" Line 160: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/uart_tx.v" Line 164: Result of 32-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:1127 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/EnviarDatos.v" Line 34: Assignment to ready_u ignored, since the identifier is never used
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <EnviarDatos>.
+    Related source file is "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/EnviarDatos.v".
+        BAUD = 434
+WARNING:Xst:647 - Input <datos> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/EnviarDatos.v" line 29: Output port <ready> of the instance <TX0> is unconnected or connected to loadless signal.
+    Found 3-bit register for signal <state>.
+    Found 28-bit register for signal <timer>.
+    Found 1-bit register for signal <start_uart>.
+    Found 8-bit register for signal <data_send>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 5                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (negative)                                 |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 000                                            |
+    | Power Up State     | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 28-bit subtractor for signal <timer[27]_GND_1_o_sub_5_OUT> created at line 63.
+    Found 8-bit adder for signal <data_send[7]_GND_1_o_add_6_OUT> created at line 68.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  37 D-type flip-flop(s).
+	inferred   3 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <EnviarDatos> synthesized.
+
+Synthesizing Unit <uart_tx>.
+    Related source file is "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/uart_tx.v".
+        BAUD = 434
+    Found 8-bit register for signal <data_r>.
+    Found 10-bit register for signal <shifter>.
+    Found 4-bit register for signal <bitc>.
+    Found 1-bit register for signal <tx>.
+    Found 2-bit register for signal <state>.
+    Found 1-bit register for signal <start_r>.
+    Found finite state machine <FSM_1> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | GND_2_o_GND_2_o_equal_8_o (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit adder for signal <bitc[3]_GND_2_o_add_19_OUT> created at line 99.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  24 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <uart_tx> synthesized.
+
+Synthesizing Unit <baudgen>.
+    Related source file is "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/baudgen.v".
+        M = 434
+    Found 9-bit register for signal <divcounter>.
+    Found 10-bit adder for signal <n0017[9:0]> created at line 66.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   9 D-type flip-flop(s).
+	inferred   3 Multiplexer(s).
+Unit <baudgen> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 1
+ 28-bit subtractor                                     : 1
+ 4-bit adder                                           : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 9
+ 1-bit register                                        : 3
+ 10-bit register                                       : 1
+ 28-bit register                                       : 1
+ 4-bit register                                        : 1
+ 8-bit register                                        : 2
+ 9-bit register                                        : 1
+# Multiplexers                                         : 7
+ 1-bit 2-to-1 multiplexer                              : 1
+ 10-bit 2-to-1 multiplexer                             : 1
+ 28-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 2
+ 8-bit 2-to-1 multiplexer                              : 1
+ 9-bit 2-to-1 multiplexer                              : 1
+# FSMs                                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <EnviarDatos>.
+The following registers are absorbed into counter <timer>: 1 register on signal <timer>.
+The following registers are absorbed into counter <data_send>: 1 register on signal <data_send>.
+Unit <EnviarDatos> synthesized (advanced).
+
+Synthesizing (advanced) Unit <uart_tx>.
+The following registers are absorbed into counter <bitc>: 1 register on signal <bitc>.
+Unit <uart_tx> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 10-bit adder                                          : 1
+# Counters                                             : 3
+ 28-bit down counter                                   : 1
+ 4-bit up counter                                      : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 30
+ Flip-Flops                                            : 30
+# Multiplexers                                         : 5
+ 1-bit 2-to-1 multiplexer                              : 1
+ 10-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 2
+ 9-bit 2-to-1 multiplexer                              : 1
+# FSMs                                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <state[1:2]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 00
+ 001   | 01
+ 010   | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <TX0/FSM_1> on signal <state[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 11
+-------------------
+
+Optimizing unit <EnviarDatos> ...
+
+Optimizing unit <uart_tx> ...
+
+Optimizing unit <baudgen> ...
+WARNING:Xst:1293 - FF/Latch <timer_27> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_26> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_25> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_24> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_23> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_22> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_21> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_20> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_19> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_18> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_17> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_16> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_15> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_send_4> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_send_5> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_send_6> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <data_send_7> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_5> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_6> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_7> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_8> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_9> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_10> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_11> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_12> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_13> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <timer_14> has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <TX0/data_r_7> (without init value) has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <TX0/data_r_6> (without init value) has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <TX0/data_r_5> (without init value) has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <TX0/data_r_4> (without init value) has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block EnviarDatos, actual ratio is 3.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 43
+ Flip-Flops                                            : 43
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : project.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 97
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 8
+#      LUT2                        : 10
+#      LUT3                        : 15
+#      LUT4                        : 10
+#      LUT5                        : 10
+#      LUT6                        : 5
+#      MUXCY                       : 15
+#      VCC                         : 1
+#      XORCY                       : 18
+# FlipFlops/Latches                : 43
+#      FD                          : 12
+#      FDC                         : 2
+#      FDE                         : 9
+#      FDR                         : 2
+#      FDRE                        : 8
+#      FDS                         : 6
+#      FDSE                        : 4
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 3
+#      IBUF                        : 2
+#      OBUF                        : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx4tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              42  out of   4800     0%  
+ Number of Slice LUTs:                   62  out of   2400     2%  
+    Number used as Logic:                62  out of   2400     2%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     65
+   Number with an unused Flip Flop:      23  out of     65    35%  
+   Number with an unused LUT:             3  out of     65     4%  
+   Number of fully used LUT-FF pairs:    39  out of     65    60%  
+   Number of unique control sets:         8
+
+IO Utilization: 
+ Number of IOs:                          12
+ Number of bonded IOBs:                   4  out of    102     3%  
+    IOB Flip Flops/Latches:               1
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 43    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 5.309ns (Maximum Frequency: 188.359MHz)
+   Minimum input arrival time before clock: 3.971ns
+   Maximum output required time after clock: 4.118ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 5.309ns (frequency: 188.359MHz)
+  Total number of paths / destination ports: 539 / 68
+-------------------------------------------------------------------------
+Delay:               5.309ns (Levels of Logic = 3)
+  Source:            TX0/BAUD0/divcounter_0 (FF)
+  Destination:       TX0/shifter_5 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: TX0/BAUD0/divcounter_0 to TX0/shifter_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               3   0.525   1.196  TX0/BAUD0/divcounter_0 (TX0/BAUD0/divcounter_0)
+     LUT5:I0->O            1   0.254   0.682  TX0/BAUD0/Mmux_n00111_SW0 (N6)
+     LUT6:I5->O           11   0.254   1.039  TX0/BAUD0/Mmux_n00111 (TX0/clk_baud)
+     LUT3:I2->O            4   0.254   0.803  TX0/_n0110_inv1 (TX0/_n0110_inv)
+     FDSE:CE                   0.302          TX0/shifter_2
+    ----------------------------------------
+    Total                      5.309ns (1.589ns logic, 3.720ns route)
+                                       (29.9% logic, 70.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 31 / 25
+-------------------------------------------------------------------------
+Offset:              3.971ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       state_FSM_FFd2 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to state_FSM_FFd2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.328   0.803  rst_IBUF (rst_IBUF)
+     INV:I->O             14   0.255   1.126  rst_inv1_INV_0 (TX0/rstn_inv)
+     FDSE:S                    0.459          TX0/shifter_2
+    ----------------------------------------
+    Total                      3.971ns (2.042ns logic, 1.929ns route)
+                                       (51.4% logic, 48.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.118ns (Levels of Logic = 1)
+  Source:            TX0/tx (FF)
+  Destination:       tx (PAD)
+  Source Clock:      clk rising
+
+  Data Path: TX0/tx to tx
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.525   0.681  TX0/tx (TX0/tx)
+     OBUF:I->O                 2.912          tx_OBUF (tx)
+    ----------------------------------------
+    Total                      4.118ns (3.437ns logic, 0.681ns route)
+                                       (83.5% logic, 16.5% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    5.309|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.26 secs
+ 
+--> 
+
+
+Total memory usage is 381616 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   39 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

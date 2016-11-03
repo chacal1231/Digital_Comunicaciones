@@ -2,7 +2,8 @@ module Control(	input wire clk,
 				input wire rst,
 				output reg [2:0] command_1 = 3'b0,
 				output reg start,
-				input wire ready_command);
+				input wire ready_command,
+				output reg start_datos = 1'b0);
 
 reg [27:0] timer;
 
@@ -45,7 +46,8 @@ always @(posedge clk or negedge rst) begin
 				end else begin
 					start = 1'b0;
 					if(command_1 == 3'd3) begin
-						start = 1'b0;
+						start 		= 1'b0;
+						start_datos	= 1'b1;
 					end else begin
 						state = S_INIT;
 						command_1 = command_1 + 1;
