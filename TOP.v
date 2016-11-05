@@ -5,7 +5,7 @@ input clk;
 output tx;
 wire [2:0] command_in;
 wire ready_command1, start_datos;
-reg [7:0] datos = 8'h30;
+reg [7:0] datos = 8'd1;
 
 wire rst,start,tx_1,tx_2;
 assign rst = 1'b1;

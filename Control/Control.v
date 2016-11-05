@@ -21,7 +21,7 @@ always @(posedge clk or negedge rst) begin
 	end else begin
 		case(state)
 			S_INIT: begin
-				timer = 28'd200000000;
+				timer = 28'd100000000;
 				start = 1'b1;
 				state = S_SEND;
 			end

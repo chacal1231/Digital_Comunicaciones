@@ -1,15 +1,13 @@
 [*]
 [*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
-[*] Thu Nov  3 17:40:46 2016
+[*] Fri Nov  4 22:43:54 2016
 [*]
-[dumpfile] "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/simulation/TOP_TB.vcd"
-[dumpfile_mtime] "Thu Nov  3 17:40:08 2016"
-[dumpfile_size] 19906807
+[dumpfile] "(null)"
 [savefile] "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/top.gtkw"
-[timestart] 0
+[timestart] 8357900000
 [size] 1301 744
 [pos] -1 -1
-*-31.148891 7125970000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-27.148891 8855650000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP_TB.
 [treeopen] TOP_TB.inst1.
 [sst_width] 223
@@ -31,10 +29,9 @@ TOP_TB.inst1.com1.str
 TOP_TB.inst1.com1.ready_command
 @22
 TOP_TB.inst1.com1.command[7:0]
-@29
+@28
 [color] 3
 TOP_TB.inst1.com1.tx
-@28
 TOP_TB.inst1.control1.state[2:0]
 TOP_TB.inst1.control1.rst
 TOP_TB.inst1.control1.ready_command
@@ -43,9 +40,12 @@ TOP_TB.inst1.control1.command_1[2:0]
 @28
 TOP_TB.inst1.control1.start
 TOP_TB.inst1.envi.state[2:0]
-@820
+@25
 TOP_TB.inst1.envi.numeros[7:0]
+@820
+TOP_TB.inst1.envi.data_send[7:0]
 @28
+TOP_TB.inst1.envi.multip
 TOP_TB.inst1.envi.tx
 [pattern_trace] 1
 [pattern_trace] 0

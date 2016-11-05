@@ -23,9 +23,18 @@ module EnviarDatos(	input wire clk,
 	wire [7:0] data_send;
 	wire ready_u;
 	reg [27:0] timer		= 28'd0;
-	reg [7:0] numeros 		= 8'h30;
+	reg	[27:0] timer_2		= 28'd0;
+	reg	[27:0] timer_3		= 28'd0;
+	reg [7:0] numeros		= 8'd0;
+	reg multip 				= 1'b0;
+	reg [7:0] data_in;
 
-assign data_send = numeros;
+//Memoria ROM para comandos
+	reg [7:0] romMen_commandos [0:21];
+	initial begin
+		$readmemh("EnviarDatos/comandos.list", romMen_commandos);
+	end
+
 //Instanciar UART
 uart_tx #(.BAUD(BAUD))
 	  TX0 (
@@ -37,12 +46,14 @@ uart_tx #(.BAUD(BAUD))
 	    .tx(tx) //-- Salida de datos serie (hacia el PC)
 	  );
 
-	localparam INIT 	= 		3'b000;
-	localparam WAIT		=		3'b001;
-	localparam SEND 	= 		3'b010;
-	localparam STOP 	= 		3'b100;
+	localparam INIT 		= 		3'b000;
+	localparam WAIT			=		3'b001;
+	localparam SEND 		= 		3'b010;
+	localparam SEND_DATA 	= 		3'b100;
+	localparam SEND_DATA_2  =		3'b011;
+	localparam STOP 		= 		3'b101;
 
-	
+	assign data_send = (multip) ? data_in: romMen_commandos[numeros];
 
 
 always @(posedge clk or negedge rst) begin
@@ -52,7 +63,10 @@ always @(posedge clk or negedge rst) begin
 		case(state)
 				INIT: begin
 					if(start==1'b1)begin
+					data_in 	= datos;
 					timer 		= 28'd25000000;
+					timer_2 	= 28'd25000000;
+					timer_3		= 28'd2500;
 					state		= WAIT;
 					start_uart 	= 1'b0;
 				end else begin
@@ -71,14 +85,42 @@ always @(posedge clk or negedge rst) begin
 					if(timer>0)begin
 						timer 		= timer - 28'd1;
 					end else begin
-						if(numeros == 8'h39)begin
-							state	= STOP;
+						if(numeros == 8'd19)begin
+							state	= SEND_DATA;
+							multip	= 1'b1;
+							numeros = numeros + 8'd1;
 						end else begin
-							start_uart 	= 1'b1;
 							numeros 	= numeros + 8'd1;
+							start_uart 	= 1'b1;
 							state 		= INIT;	
 						end
 					end
+				end
+				SEND_DATA:begin
+				if(timer_3>0)begin
+					start_uart 	= 1'b1;
+					state 		= SEND_DATA;
+					timer_3 	= timer_3 - 28'd1;
+				end else begin
+						state		= SEND_DATA_2;
+						multip 		= 1'b0;
+					end		
+				end
+				SEND_DATA_2:begin
+					if(timer_2>0) begin
+						start_uart 	= 1'b0;
+						timer_2 	= timer_2 - 28'd1;
+					end else begin
+					if(numeros<8'd21)begin
+						start_uart 	= 1'b1;
+						timer_2 	= 28'd25000000;
+						numeros 	= numeros + 8'd1;
+						state 		= SEND_DATA_2;
+					end else begin
+						state = STOP;
+					end		
+				end
+					
 				end
 				STOP:begin
 					start_uart	= 1'b0;

@@ -41,7 +41,7 @@ module Comunicaciones ( input wire clk,
 	reg start_uart = 1'b0;
 
 	//Memoria ROM para comandos
-	reg [7:0] romMen_commandos [0:127];
+	reg [7:0] romMen_commandos [0:82];
 	initial begin
 		$readmemh("Comunicaciones/comandos.list", romMen_commandos);
 	end
@@ -72,7 +72,7 @@ module Comunicaciones ( input wire clk,
 		end else begin
 			case(state)
 					IDDLE: begin
-						timer = 28'd200000000;
+						timer = 28'd100000000;
 						if(str==1'b1) begin //(1)
 							RegCommand = command;
 							state=SAVE_COMM;
