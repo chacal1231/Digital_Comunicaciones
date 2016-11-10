@@ -71,6 +71,7 @@ Parsing module <EnviarDatos>.
 
 Elaborating module <TOP>.
 WARNING:HDLCompiler:872 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/TOP.v" Line 8: Using initial value of datos since it is never assigned
+WARNING:HDLCompiler:872 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/TOP.v" Line 9: Using initial value of comando since it is never assigned
 
 Elaborating module <Control>.
 WARNING:HDLCompiler:413 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/Control/Control.v" Line 53: Result of 4-bit expression is truncated to fit in 3-bit target.
@@ -94,6 +95,7 @@ WARNING:HDLCompiler:413 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comuni
 
 Elaborating module <EnviarDatos>.
 Reading initialization file \"home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/comandos.list\".
+WARNING:HDLCompiler:1670 - "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/EnviarDatos.v" Line 38: Signal <romMen_commandos> in initial block is partially initialized.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -214,37 +216,43 @@ Synthesizing Unit <EnviarDatos>.
         BAUD = 434
 WARNING:Xst:2999 - Signal 'romMen_commandos', unconnected in block 'EnviarDatos', is tied to its initial value.
 WARNING:Xst:3035 - Index value(s) does not match array range for signal <romMen_commandos>, simulation mismatch.
-    Found 22x8-bit single-port Read Only RAM <Mram_romMen_commandos> for signal <romMen_commandos>.
-    Found 1-bit register for signal <start_uart>.
-    Found 8-bit register for signal <numeros>.
-    Found 28-bit register for signal <timer_3>.
-    Found 1-bit register for signal <multip>.
-    Found 28-bit register for signal <timer_2>.
-    Found 28-bit register for signal <timer>.
+    Found 31x8-bit single-port Read Only RAM <Mram_romMen_commandos> for signal <romMen_commandos>.
     Found 8-bit register for signal <data_in>.
-    Found 3-bit register for signal <state>.
+    Found 28-bit register for signal <timer>.
+    Found 28-bit register for signal <timer_2>.
+    Found 28-bit register for signal <timer_3>.
+    Found 28-bit register for signal <timer_4>.
+    Found 28-bit register for signal <timer_5>.
+    Found 1-bit register for signal <start_uart>.
+    Found 1-bit register for signal <multip>.
+    Found 8-bit register for signal <numeros>.
+    Found 4-bit register for signal <state>.
     Found finite state machine <FSM_3> for signal <state>.
     -----------------------------------------------------------------------
-    | States             | 6                                              |
-    | Transitions        | 13                                             |
-    | Inputs             | 7                                              |
-    | Outputs            | 5                                              |
+    | States             | 8                                              |
+    | Transitions        | 18                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 8                                              |
     | Clock              | clk (rising_edge)                              |
-    | Power Up State     | 000                                            |
+    | Power Up State     | 0000                                           |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 28-bit subtractor for signal <timer[27]_GND_6_o_sub_12_OUT> created at line 86.
-    Found 28-bit subtractor for signal <timer_3[27]_GND_6_o_sub_22_OUT> created at line 103.
-    Found 28-bit subtractor for signal <timer_2[27]_GND_6_o_sub_26_OUT> created at line 112.
-    Found 8-bit adder for signal <numeros[7]_GND_6_o_add_27_OUT> created at line 117.
-    Found 8-bit comparator greater for signal <numeros[7]_GND_6_o_LessThan_27_o> created at line 114
+    Found 28-bit subtractor for signal <timer[27]_GND_6_o_sub_14_OUT> created at line 93.
+    Found 28-bit subtractor for signal <timer_4[27]_GND_6_o_sub_24_OUT> created at line 112.
+    Found 28-bit subtractor for signal <timer_5[27]_GND_6_o_sub_89_OUT> created at line 232.
+    Found 28-bit subtractor for signal <timer_3[27]_GND_6_o_sub_93_OUT> created at line 243.
+    Found 28-bit subtractor for signal <timer_2[27]_GND_6_o_sub_98_OUT> created at line 253.
+    Found 8-bit adder for signal <numeros[7]_GND_6_o_add_16_OUT> created at line 100.
+    Found 28-bit comparator greater for signal <GND_6_o_timer_5[27]_LessThan_88_o> created at line 230
+    Found 28-bit comparator greater for signal <GND_6_o_timer_3[27]_LessThan_92_o> created at line 239
+    Found 8-bit comparator greater for signal <numeros[7]_GND_6_o_LessThan_99_o> created at line 255
     Summary:
 	inferred   1 RAM(s).
-	inferred   4 Adder/Subtractor(s).
-	inferred 102 D-type flip-flop(s).
-	inferred   1 Comparator(s).
-	inferred   9 Multiplexer(s).
+	inferred   6 Adder/Subtractor(s).
+	inferred 158 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred  25 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <EnviarDatos> synthesized.
 
@@ -254,31 +262,32 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 3
  16x8-bit single-port Read Only RAM                    : 1
- 22x8-bit single-port Read Only RAM                    : 1
+ 31x8-bit single-port Read Only RAM                    : 1
  83x8-bit single-port Read Only RAM                    : 1
-# Adders/Subtractors                                   : 12
+# Adders/Subtractors                                   : 14
  10-bit adder                                          : 2
- 28-bit subtractor                                     : 5
+ 28-bit subtractor                                     : 7
  3-bit adder                                           : 1
  4-bit adder                                           : 2
  8-bit adder                                           : 2
-# Registers                                            : 29
+# Registers                                            : 31
  1-bit register                                        : 10
  10-bit register                                       : 2
- 28-bit register                                       : 5
+ 28-bit register                                       : 7
  3-bit register                                        : 1
  4-bit register                                        : 2
  8-bit register                                        : 7
  9-bit register                                        : 2
-# Comparators                                          : 1
+# Comparators                                          : 3
+ 28-bit comparator greater                             : 2
  8-bit comparator greater                              : 1
-# Multiplexers                                         : 30
- 1-bit 2-to-1 multiplexer                              : 7
+# Multiplexers                                         : 46
+ 1-bit 2-to-1 multiplexer                              : 12
  10-bit 2-to-1 multiplexer                             : 2
- 28-bit 2-to-1 multiplexer                             : 7
+ 28-bit 2-to-1 multiplexer                             : 15
  3-bit 2-to-1 multiplexer                              : 2
  32-bit 2-to-1 multiplexer                             : 4
- 8-bit 2-to-1 multiplexer                              : 6
+ 8-bit 2-to-1 multiplexer                              : 9
  9-bit 2-to-1 multiplexer                              : 2
 # FSMs                                                 : 5
 
@@ -288,15 +297,15 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-INFO:Xst:2261 - The FF/Latch <data_in_1> in Unit <envi> is equivalent to the following 5 FFs/Latches, which will be removed : <data_in_2> <data_in_3> <data_in_4> <data_in_5> <data_in_7> 
-INFO:Xst:2261 - The FF/Latch <data_in_0> in Unit <envi> is equivalent to the following FF/Latch, which will be removed : <data_in_6> 
+INFO:Xst:2261 - The FF/Latch <data_in_1> in Unit <envi> is equivalent to the following 4 FFs/Latches, which will be removed : <data_in_2> <data_in_3> <data_in_6> <data_in_7> 
+INFO:Xst:2261 - The FF/Latch <data_in_0> in Unit <envi> is equivalent to the following 2 FFs/Latches, which will be removed : <data_in_4> <data_in_5> 
 WARNING:Xst:1710 - FF/Latch <data_in_0> (without init value) has a constant value of 1 in block <envi>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <data_in_1> (without init value) has a constant value of 0 in block <envi>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <RegCommand_4> of sequential type is unconnected in block <com1>.
 WARNING:Xst:2677 - Node <RegCommand_5> of sequential type is unconnected in block <com1>.
 WARNING:Xst:2677 - Node <RegCommand_6> of sequential type is unconnected in block <com1>.
 WARNING:Xst:2677 - Node <RegCommand_7> of sequential type is unconnected in block <com1>.
-WARNING:Xst:2404 -  FFs/Latches <data_in<7:7>> (without init value) have a constant value of 0 in block <EnviarDatos>.
+WARNING:Xst:2404 -  FFs/Latches <data_in<7:6>> (without init value) have a constant value of 0 in block <EnviarDatos>.
 
 Synthesizing (advanced) Unit <Comunicaciones>.
 INFO:Xst:3226 - The RAM <Mram_romMen_commandos> will be implemented as a BLOCK RAM, absorbing the following register(s): <CrrCh>
@@ -334,19 +343,20 @@ INFO:Xst:3226 - The RAM <Mram_romMen_direcciones> will be implemented as a BLOCK
 Unit <Comunicaciones> synthesized (advanced).
 
 Synthesizing (advanced) Unit <EnviarDatos>.
-The following registers are absorbed into counter <numeros>: 1 register on signal <numeros>.
-The following registers are absorbed into counter <timer_3>: 1 register on signal <timer_3>.
-The following registers are absorbed into counter <timer>: 1 register on signal <timer>.
-INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_romMen_commandos> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+INFO:Xst:3226 - The RAM <Mram_romMen_commandos> will be implemented as a BLOCK RAM, absorbing the following register(s): <numeros>
     -----------------------------------------------------------------------
-    | ram_type           | Distributed                         |          |
+    | ram_type           | Block                               |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 22-word x 8-bit                     |          |
+    |     aspect ratio   | 31-word x 8-bit                     |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
     |     weA            | connected to signal <GND>           | high     |
-    |     addrA          | connected to signal <numeros<4:0>>  |          |
+    |     addrA          | connected to signal <state[3]_numeros[7]_mux_141_OUT<4:0>> |          |
     |     diA            | connected to signal <GND>           |          |
     |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | optimization       | area                                |          |
     -----------------------------------------------------------------------
 Unit <EnviarDatos> synthesized (advanced).
 
@@ -360,28 +370,27 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 3
  16x8-bit single-port block Read Only RAM              : 1
- 22x8-bit single-port distributed Read Only RAM        : 1
+ 31x8-bit single-port block Read Only RAM              : 1
  83x8-bit single-port block Read Only RAM              : 1
-# Adders/Subtractors                                   : 7
+# Adders/Subtractors                                   : 12
  10-bit adder                                          : 2
- 28-bit subtractor                                     : 3
+ 28-bit subtractor                                     : 7
  3-bit adder                                           : 1
- 8-bit adder                                           : 1
-# Counters                                             : 5
- 28-bit down counter                                   : 2
+ 8-bit adder                                           : 2
+# Counters                                             : 2
  4-bit up counter                                      : 2
- 8-bit up counter                                      : 1
-# Registers                                            : 174
- Flip-Flops                                            : 174
-# Comparators                                          : 1
+# Registers                                            : 293
+ Flip-Flops                                            : 293
+# Comparators                                          : 3
+ 28-bit comparator greater                             : 2
  8-bit comparator greater                              : 1
-# Multiplexers                                         : 26
- 1-bit 2-to-1 multiplexer                              : 6
+# Multiplexers                                         : 45
+ 1-bit 2-to-1 multiplexer                              : 11
  10-bit 2-to-1 multiplexer                             : 2
- 28-bit 2-to-1 multiplexer                             : 5
+ 28-bit 2-to-1 multiplexer                             : 15
  3-bit 2-to-1 multiplexer                              : 2
  32-bit 2-to-1 multiplexer                             : 4
- 8-bit 2-to-1 multiplexer                              : 5
+ 8-bit 2-to-1 multiplexer                              : 9
  9-bit 2-to-1 multiplexer                              : 2
 # FSMs                                                 : 5
 
@@ -394,9 +403,8 @@ WARNING:Xst:1710 - FF/Latch <data_in_0> (without init value) has a constant valu
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_in_1> (without init value) has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_in_2> (without init value) has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_in_3> (without init value) has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_in_4> (without init value) has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_in_5> (without init value) has a constant value of 0 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_in_6> (without init value) has a constant value of 1 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_in_4> (without init value) has a constant value of 1 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_in_5> (without init value) has a constant value of 1 in block <EnviarDatos>. This FF/Latch will be trimmed during the optimization process.
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <control1/FSM_0> on signal <state[1:2]> with gray encoding.
 -------------------
@@ -406,6 +414,15 @@ Optimizing FSM <control1/FSM_0> on signal <state[1:2]> with gray encoding.
  001   | 01
  010   | 11
  100   | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <com1/FSM_2> on signal <state[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 11
 -------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <com1/FSM_1> on signal <state[1:3]> with user encoding.
@@ -419,8 +436,7 @@ Optimizing FSM <com1/FSM_1> on signal <state[1:3]> with user encoding.
  100   | 100
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <com1/TX0/FSM_2> on signal <state[1:2]> with gray encoding.
-Optimizing FSM <envi/TX0/FSM_2> on signal <state[1:2]> with gray encoding.
+Optimizing FSM <envi/FSM_2> on signal <state[1:2]> with gray encoding.
 -------------------
  State | Encoding
 -------------------
@@ -429,16 +445,18 @@ Optimizing FSM <envi/TX0/FSM_2> on signal <state[1:2]> with gray encoding.
  10    | 11
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <envi/FSM_3> on signal <state[1:3]> with user encoding.
+Optimizing FSM <envi/FSM_3> on signal <state[1:3]> with gray encoding.
 -------------------
  State | Encoding
 -------------------
- 000   | 000
- 001   | 001
- 010   | 010
- 100   | 100
- 101   | 101
- 011   | 011
+ 0000  | 000
+ 0010  | 001
+ 0011  | 011
+ 0100  | 010
+ 1000  | 110
+ 0101  | 111
+ 0110  | 101
+ 0111  | 100
 -------------------
 WARNING:Xst:2677 - Node <CrrCh_7> of sequential type is unconnected in block <Comunicaciones>.
 
@@ -450,40 +468,70 @@ WARNING:Xst:1293 - FF/Latch <command_1_2> has a constant value of 0 in block <Co
 
 Optimizing unit <Comunicaciones> ...
 
-Optimizing unit <uart_tx> ...
-
-Optimizing unit <baudgen> ...
-
 Optimizing unit <EnviarDatos> ...
-WARNING:Xst:1710 - FF/Latch <envi/TX0/data_r_7> (without init value) has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <envi/timer_2_25> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_2_26> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_2_27> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_12> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_13> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_14> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_15> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_16> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_17> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_18> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_19> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_20> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_21> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_22> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_23> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_24> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_25> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_26> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <envi/timer_4_18> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_17> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_16> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_15> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_14> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_13> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_12> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_27> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_25> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_26> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_26> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_25> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_24> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_23> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_22> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_21> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_20> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_19> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_18> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_17> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_16> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_15> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_14> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_13> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_3_12> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_2_27> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_2_26> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_2_25> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_27> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <com1/timer_27> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_26> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_25> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <control1/timer_27> (without init value) has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <com1/timer_27> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/numeros_7> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/numeros_6> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/numeros_5> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_27> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_26> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_25> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_24> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_23> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_22> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_21> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_20> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_19> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_18> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_17> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_16> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_15> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_14> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_13> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_5_12> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_27> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_26> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_25> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_24> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_23> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_22> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_21> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_20> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <envi/timer_4_19> has a constant value of 0 in block <TOP>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block TOP, actual ratio is 19.
+Found area constraint ratio of 100 (+ 0) on block TOP, actual ratio is 25.
 
 Final Macro Processing ...
 
@@ -491,8 +539,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 224
- Flip-Flops                                            : 224
+# Registers                                            : 246
+ Flip-Flops                                            : 246
 
 =========================================================================
 
@@ -515,26 +563,26 @@ Top Level Output File Name         : project.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 659
+# BELS                             : 814
 #      GND                         : 1
-#      INV                         : 83
-#      LUT1                        : 19
-#      LUT2                        : 59
-#      LUT3                        : 98
-#      LUT4                        : 23
-#      LUT5                        : 44
-#      LUT6                        : 55
-#      MUXCY                       : 134
+#      INV                         : 138
+#      LUT1                        : 23
+#      LUT2                        : 36
+#      LUT3                        : 71
+#      LUT4                        : 26
+#      LUT5                        : 79
+#      LUT6                        : 120
+#      MUXCY                       : 161
 #      VCC                         : 1
-#      XORCY                       : 142
-# FlipFlops/Latches                : 224
-#      FD                          : 64
-#      FDE                         : 128
+#      XORCY                       : 158
+# FlipFlops/Latches                : 246
+#      FD                          : 155
+#      FDE                         : 59
 #      FDR                         : 4
 #      FDRE                        : 8
 #      FDSE                        : 20
-# RAMS                             : 2
-#      RAMB8BWER                   : 2
+# RAMS                             : 3
+#      RAMB8BWER                   : 3
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 1
@@ -547,24 +595,24 @@ Selected Device : 6slx4tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             224  out of   4800     4%  
- Number of Slice LUTs:                  381  out of   2400    15%  
-    Number used as Logic:               381  out of   2400    15%  
+ Number of Slice Registers:             246  out of   4800     5%  
+ Number of Slice LUTs:                  493  out of   2400    20%  
+    Number used as Logic:               493  out of   2400    20%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    387
-   Number with an unused Flip Flop:     163  out of    387    42%  
-   Number with an unused LUT:             6  out of    387     1%  
-   Number of fully used LUT-FF pairs:   218  out of    387    56%  
-   Number of unique control sets:        15
+ Number of LUT Flip Flop pairs used:    500
+   Number with an unused Flip Flop:     254  out of    500    50%  
+   Number with an unused LUT:             7  out of    500     1%  
+   Number of fully used LUT-FF pairs:   239  out of    500    47%  
+   Number of unique control sets:        11
 
 IO Utilization: 
  Number of IOs:                           2
  Number of bonded IOBs:                   2  out of    102     1%  
 
 Specific Feature Utilization:
- Number of Block RAM/FIFO:                1  out of     12     8%  
-    Number using Block RAM only:          1
+ Number of Block RAM/FIFO:                2  out of     12    16%  
+    Number using Block RAM only:          2
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
 
 ---------------------------
@@ -588,7 +636,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 226   |
+clk                                | BUFGP                  | 249   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -599,9 +647,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 6.875ns (Maximum Frequency: 145.448MHz)
+   Minimum period: 8.279ns (Maximum Frequency: 120.781MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 5.457ns
+   Maximum output required time after clock: 5.620ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -610,35 +658,35 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.875ns (frequency: 145.448MHz)
-  Total number of paths / destination ports: 8602 / 399
+  Clock period: 8.279ns (frequency: 120.781MHz)
+  Total number of paths / destination ports: 11142 / 357
 -------------------------------------------------------------------------
-Delay:               6.875ns (Levels of Logic = 5)
-  Source:            envi/timer_2_19 (FF)
-  Destination:       envi/start_uart (FF)
+Delay:               8.279ns (Levels of Logic = 5)
+  Source:            envi/timer_19 (FF)
+  Destination:       envi/Mram_romMen_commandos (RAM)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: envi/timer_2_19 to envi/start_uart
+  Data Path: envi/timer_19 to envi/Mram_romMen_commandos
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              2   0.525   1.181  envi/timer_2_19 (envi/timer_2_19)
-     LUT6:I0->O            1   0.254   0.958  envi/start_uart_GND_6_o_MUX_164_o<27>4 (envi/start_uart_GND_6_o_MUX_164_o<27>3)
-     LUT5:I1->O           31   0.254   1.503  envi/start_uart_GND_6_o_MUX_164_o<27>5 (envi/start_uart_GND_6_o_MUX_164_o)
-     LUT6:I5->O            1   0.254   0.682  envi/_n0174_inv1 (envi/_n0174_inv1)
-     LUT6:I5->O            1   0.254   0.682  envi/_n0174_inv2 (envi/_n0174_inv)
-     LUT6:I5->O            1   0.254   0.000  envi/start_uart_rstpot (envi/start_uart_rstpot)
-     FD:D                      0.074          envi/start_uart
+     FD:C->Q               3   0.525   1.221  envi/timer_19 (envi/timer_19)
+     LUT6:I0->O            1   0.254   0.958  envi/_n0199<27>4 (envi/_n0199<27>3)
+     LUT5:I1->O           34   0.254   1.661  envi/_n0199<27>5 (envi/_n0199)
+     LUT5:I3->O            5   0.250   0.841  envi/state[3]_numeros[7]_mux_141_OUT<2>11 (envi/state[3]_numeros[7]_mux_141_OUT<2>1)
+     LUT6:I5->O            1   0.254   0.682  envi/state[3]_numeros[7]_mux_141_OUT<4>1 (envi/state[3]_numeros[7]_mux_141_OUT<4>1)
+     LUT6:I5->O            2   0.254   0.725  envi/state[3]_numeros[7]_mux_141_OUT<4>2 (envi/state[3]_numeros[7]_mux_141_OUT<4>)
+     RAMB8BWER:ADDRAWRADDR7        0.400          envi/Mram_romMen_commandos
     ----------------------------------------
-    Total                      6.875ns (1.869ns logic, 5.006ns route)
-                                       (27.2% logic, 72.8% route)
+    Total                      8.279ns (2.191ns logic, 6.088ns route)
+                                       (26.5% logic, 73.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 3 / 1
 -------------------------------------------------------------------------
-Offset:              5.457ns (Levels of Logic = 2)
+Offset:              5.620ns (Levels of Logic = 2)
   Source:            control1/start_datos (FF)
   Destination:       tx (PAD)
   Source Clock:      clk rising
@@ -647,12 +695,12 @@ Offset:              5.457ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               6   0.525   1.104  control1/start_datos (control1/start_datos)
+     FD:C->Q              11   0.525   1.267  control1/start_datos (control1/start_datos)
      LUT3:I0->O            1   0.235   0.681  Mmux_tx11 (tx_OBUF)
      OBUF:I->O                 2.912          tx_OBUF (tx)
     ----------------------------------------
-    Total                      5.457ns (3.672ns logic, 1.785ns route)
-                                       (67.3% logic, 32.7% route)
+    Total                      5.620ns (3.672ns logic, 1.948ns route)
+                                       (65.3% logic, 34.7% route)
 
 =========================================================================
 
@@ -664,21 +712,21 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    6.875|         |         |         |
+clk            |    8.279|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.64 secs
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 13.42 secs
  
 --> 
 
 
-Total memory usage is 382896 kilobytes
+Total memory usage is 384496 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   58 (   0 filtered)
+Number of warnings :   93 (   0 filtered)
 Number of infos    :    5 (   0 filtered)
 

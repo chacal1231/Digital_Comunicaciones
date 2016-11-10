@@ -11,7 +11,7 @@ module TOP_TB;
     always #1 clk = ~clk; 
 
     initial begin
-        #2000000
+        #1000000
         $finish;
     end
 

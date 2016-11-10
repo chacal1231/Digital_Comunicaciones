@@ -1,4 +1,0 @@
-verilog work ../testMem.v
-verilog work ../baudgen.v
-verilog work ../uart_rx.v
-verilog work ../uart_tx.v
