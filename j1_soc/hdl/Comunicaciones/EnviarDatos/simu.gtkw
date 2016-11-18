@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Thu Nov  3 12:19:10 2016
+[*]
+[dumpfile] "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/simulation/EnviarDatos_TB.vcd"
+[dumpfile_mtime] "Thu Nov  3 12:18:49 2016"
+[dumpfile_size] 1352024
+[savefile] "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/EnviarDatos/simu.gtkw"
+[timestart] 0
+[size] 1301 744
+[pos] -302 -117
+*-23.631315 119000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] EnviarDatos_TB.
+[sst_width] 223
+[signals_width] 204
+[sst_expanded] 1
+[sst_vpaned_height] 211
+@28
+EnviarDatos_TB.inst1.clk
+EnviarDatos_TB.inst1.state[2:0]
+@22
+EnviarDatos_TB.inst1.timer[27:0]
+EnviarDatos_TB.inst1.data_send[7:0]
+@28
+EnviarDatos_TB.inst1.start_uart
+@29
+EnviarDatos_TB.inst1.ready_u
+@28
+EnviarDatos_TB.inst1.tx
+[pattern_trace] 1
+[pattern_trace] 0

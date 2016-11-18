@@ -1,0 +1,5 @@
+verilog work ../uvSensor.v
+verilog work ../control/control.v
+verilog work ../i2c/i2c_master.v
+verilog work ../uart_tx/uart_tx.v
+verilog work ../uart_tx/baudgen.v

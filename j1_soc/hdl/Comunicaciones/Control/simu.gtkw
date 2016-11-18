@@ -1,0 +1,29 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Wed Oct 26 15:13:47 2016
+[*]
+[dumpfile] "/home/mcmahonpc/Desktop/Matrix Creator/Comunicaciones/Control/simulation/Control_TB.vcd"
+[dumpfile_mtime] "Wed Oct 26 15:13:15 2016"
+[dumpfile_size] 1289435
+[savefile] "/home/mcmahonpc/Desktop/Matrix Creator/Comunicaciones/Control/simu.gtkw"
+[timestart] 0
+[size] 1301 744
+[pos] -1 -1
+*-25.730637 6000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Control_TB.
+[sst_width] 223
+[signals_width] 142
+[sst_expanded] 1
+[sst_vpaned_height] 211
+@28
+Control_TB.inst1.clk
+Control_TB.inst1.state[2:0]
+@22
+Control_TB.inst1.timer[24:0]
+@28
+Control_TB.inst1.rst
+Control_TB.inst1.ready_command
+@29
+Control_TB.inst1.command_1[2:0]
+[pattern_trace] 1
+[pattern_trace] 0

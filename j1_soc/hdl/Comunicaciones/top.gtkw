@@ -1,0 +1,59 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Wed Nov  9 23:00:38 2016
+[*]
+[dumpfile] "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/simulation/TOP_TB.vcd"
+[dumpfile_mtime] "Wed Nov  9 22:57:53 2016"
+[dumpfile_size] 18878010
+[savefile] "/home/mcmahonpc/Desktop/Matrix Creator/Digital_Comunicaciones/top.gtkw"
+[timestart] 8180776000
+[size] 1301 744
+[pos] -302 -117
+*-20.148891 8183230000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP_TB.
+[treeopen] TOP_TB.inst1.
+[sst_width] 223
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 278
+@28
+[color] 2
+TOP_TB.inst1.clk
+TOP_TB.inst1.com1.state[2:0]
+@820
+TOP_TB.inst1.com1.Data[7:0]
+@22
+TOP_TB.inst1.com1.CrrCh[7:0]
+TOP_TB.inst1.com1.RegCommand[7:0]
+@28
+TOP_TB.inst1.com1.rst
+TOP_TB.inst1.com1.str
+TOP_TB.inst1.com1.ready_command
+@22
+TOP_TB.inst1.com1.command[7:0]
+@28
+[color] 3
+TOP_TB.inst1.com1.tx
+TOP_TB.inst1.control1.state[2:0]
+TOP_TB.inst1.control1.rst
+TOP_TB.inst1.control1.ready_command
+@22
+TOP_TB.inst1.control1.command_1[2:0]
+@28
+TOP_TB.inst1.control1.start
+@23
+TOP_TB.inst1.envi.state[3:0]
+@22
+TOP_TB.inst1.envi.timer_4[27:0]
+@24
+TOP_TB.inst1.envi.numeros[7:0]
+@22
+TOP_TB.inst1.envi.timer_3[27:0]
+@820
+TOP_TB.inst1.envi.data_send[7:0]
+@28
+TOP_TB.inst1.envi.multip
+TOP_TB.inst1.envi.tx
+TOP_TB.inst1.envi.start_uart
+[pattern_trace] 1
+[pattern_trace] 0

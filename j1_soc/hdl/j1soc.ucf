@@ -1,0 +1,22 @@
+# Clock	
+NET "sys_clk_i"     LOC = "P84" | IOSTANDARD = LVCMOS33;	# 50MHz Clock
+
+# Uart TX
+NET "c_tx"      LOC = "P70"	| IOSTANDARD = LVCMOS33; 	# RPi RX
+//NET "uart_rx"      LOC = "P69"	| IOSTANDARD = LVCMOS33; 	# RPi TX
+
+//# LED
+//NET "ledout"    LOC = "P39" | IOSTANDARD = LVCMOS33 | DRIVE = 24; 
+
+//#Reset
+NET "sys_rst_i"        LOC = "P123" | IOSTANDARD = LVCMOS33 | PULLDOWN; #RPI_GPIO12
+
+//NET "ledUpdate"     LOC = "P39" | IOSTANDARD = LVCMOS33 | DRIVE = 24;        
+//NET "ledControl"  LOC = "P56"| IOSTANDARD = LVCMOS33;
+
+//#I2C
+//NET "i2c_scl"		LOC = "P75" | IOSTANDARD = LVCMOS33;
+//NET "i2c_sda"		LOC = "P74" | IOSTANDARD = LVCMOS33;
+
+NET "sys_rst_i" CLOCK_DEDICATED_ROUTE = FALSE;
+

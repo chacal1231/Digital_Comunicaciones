@@ -1,0 +1,7 @@
+verilog work ../TOP.v
+verilog work ../Comunicaciones/baudgen.v
+verilog work ../Comunicaciones/uart_rx.v
+verilog work ../Comunicaciones/uart_tx.v
+verilog work ../Comunicaciones/Comunicaciones.v
+verilog work ../Control/Control.v
+verilog work ../EnviarDatos/EnviarDatos.v
