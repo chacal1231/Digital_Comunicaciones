@@ -14,7 +14,8 @@ module EnviarDatos(	input wire clk,
 					input wire start,
 					input wire [7:0] datos,
 					output wire tx,
-					input wire [7:0] comm_in
+					input wire [7:0] comm_in,
+					output reg bussy_e = 1'b0
 					);
 
 //Velocidad de transmision
@@ -68,6 +69,7 @@ always @(posedge clk or negedge rst) begin
 		case(state)
 				INIT: begin
 					if(start==1'b1)begin
+					bussy_e		= 1'b1;
 					data_in 	= datos;
 					timer 		= 28'd25;
 					timer_2 	= 28'd25;
@@ -265,6 +267,7 @@ always @(posedge clk or negedge rst) begin
 				end
 				STOP:begin
 					start_uart	= 1'b0;
+					bussy_e	 	= 1'b0;
 					state 		= INIT;
 				end					
 				default:begin

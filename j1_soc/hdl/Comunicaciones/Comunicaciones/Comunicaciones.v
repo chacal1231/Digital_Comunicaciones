@@ -15,7 +15,8 @@ module Comunicaciones ( input wire clk,
 						input wire [7:0] command,
 						output wire tx,
 						output reg ready_command,
-						input wire str
+						input wire str,
+						output reg bussy_m = 1'b0
 	);
 
 	//Velocidad de transmision
@@ -74,40 +75,42 @@ module Comunicaciones ( input wire clk,
 					IDDLE: begin
 						timer = 28'd100;
 						if(str==1'b1) begin //(1)
-							RegCommand = command;
-							state=SAVE_COMM;
-							start_uart = 1'b1;
-							ready_command = 1'b0;
+							bussy_m			= 1'b1;
+							RegCommand 		= command;
+							state 			= SAVE_COMM;
+							start_uart 		= 1'b1;
+							ready_command 	= 1'b0;
 						end else begin //(0)
-							ready_command = 1'b1;
-							state=IDDLE;
-							start_uart = 1'b0;
+							ready_command 	= 1'b1;
+							state 			= IDDLE;
+							start_uart 		= 1'b0;
 						end
 					end
 				SAVE_COMM: begin //(2)
-					CrrCh = romMen_direcciones[RegCommand];
-					state = READ_MEM;
+					CrrCh 	= romMen_direcciones[RegCommand];
+					state 	= READ_MEM;
 				end
 				READ_MEM: begin //(3)
-					Data = romMen_commandos[CrrCh];
-					start = 1'b1;
-					state = START_SEND;
+					Data 	= romMen_commandos[CrrCh];
+					start 	= 1'b1;
+					state 	= START_SEND;
 				end
 				START_SEND: begin //(4)
-					start = 1'b0;
-					state = WAIT_COMM;
+					start 	= 1'b0;
+					state 	= WAIT_COMM;
 				end
 				WAIT_COMM: begin 
 					if(ready_u==0)begin //(5)
-						state=WAIT_COMM;
+						state = WAIT_COMM;
 					end else begin
 						if(Data==8'h0a)begin
 								if(timer>0) begin
-									timer = timer - 28'd1;
-									ready_command = 1'b1;
-									start_uart = 1'b0;	
+									timer 			= timer - 28'd1;
+									ready_command 	= 1'b1;
+									start_uart 		= 1'b0;	
 								end else begin
-								state = IDDLE;
+								bussy_m	= 1'b0;
+								state 	= IDDLE;
 							end	
 						end else begin // (6)
 							CrrCh = CrrCh + 1;
@@ -128,6 +131,7 @@ module Comunicaciones ( input wire clk,
 						start           = 1'b0;
 						start_uart 		= 1'b0;	
 						timer 			= 28'd0;
+						bussy_m			= 1'b0;
 				end
 			endcase
 		end

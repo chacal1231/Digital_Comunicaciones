@@ -1,27 +1,31 @@
 module TOP( clk,
+			rst,
 			tx,
 			datos,
 			comando,
 			bussy,
-			start_j1);
+			start_j1
+			);
 
-input clk;
+input clk, rst;
 output tx,bussy;
 wire [2:0] command_in;
-wire ready_command1, start_datos, bussy;
+wire ready_command1, start_datos, bussy, bussy_m, bussy_e, rst, start, tx_1, tx_2;
 input wire [7:0] datos;
 input wire [7:0] comando;
 input wire start_j1;
+reg bussy_j1 = 1'b0;
+wire rst_negado;
 
-assign bussy = ready_command1;
+assign rst_negado = ~rst;
 
-wire rst,start,tx_1,tx_2;
-assign rst = 1'b1;
+assign bussy = bussy_j1;
+
 
 
 //Instanciar módulo control
 Control control1(	.clk(clk), 
-					.rst(rst), 
+					.rst(rst_negado), 
 					.command_1(command_in), 
 					.start(start), 
 					.ready_command(ready_command1),
@@ -31,21 +35,30 @@ Control control1(	.clk(clk),
 
 //Instanciar módulo comunicaciones
 Comunicaciones com1(.clk(clk), 
-					.rst(rst), 
+					.rst(rst_negado), 
 					.command({5'd0,command_in}), 
 					.tx(tx_1), 
 					.ready_command(ready_command1), 
-					.str(start)
+					.str(start),
+					.bussy_m(bussy_m)
 				);
 
 EnviarDatos envi(	.clk(clk),
-					.rst(rst),
+					.rst(rst_negado),
 					.start(start_datos),
 					.datos(datos),
 					.tx(tx_2),
-					.comm_in(comando)
+					.comm_in(comando),
+					.bussy_e(bussy_e)
 				);
 //Multiplexor 2-1 para controlar TX
 assign tx = (start_datos) ? tx_2: tx_1;
 
+always @(negedge clk) begin
+if(bussy_m==1'b1 || bussy_e==1'b1)begin
+	bussy_j1 = 1'b1;
+end else begin
+	bussy_j1 = 1'b0;
+	end
+end
 endmodule

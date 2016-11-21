@@ -62,6 +62,6 @@ end//-----------------------------------------------mux_4
 
 
 
-TOP EnviarDatosWIFI(.clk(clk), .tx(tx), .datos(dato_in), .comando(comando_in), .bussy(c_bussy), .start_j1(start));
+TOP EnviarDatosWIFI(.clk(clk), .rst(rst), .tx(tx), .datos(dato_in), .comando(comando_in), .bussy(c_bussy), .start_j1(start));
 
 endmodule

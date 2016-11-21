@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
-[*] Fri Nov 18 21:35:10 2016
+[*] Mon Nov 21 13:21:23 2016
 [*]
 [dumpfile] "/home/mcmahonpc/Desktop/Matrix Creator/j1_soc/hdl/simulation/j1soc_TB.vcd"
-[dumpfile_mtime] "Fri Nov 18 21:33:29 2016"
-[dumpfile_size] 108449101
+[dumpfile_mtime] "Mon Nov 21 13:16:22 2016"
+[dumpfile_size] 201884147
 [savefile] "/home/mcmahonpc/Desktop/Matrix Creator/j1_soc/hdl/simu.gtkw"
-[timestart] 5990000000
+[timestart] 14520000
 [size] 1301 744
-[pos] -1 -117
-*-28.764776 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-21.764776 22370000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] j1soc_TB.
 [treeopen] j1soc_TB.uut.
 [treeopen] j1soc_TB.uut.WIFI.
@@ -17,7 +17,7 @@
 [sst_width] 223
 [signals_width] 163
 [sst_expanded] 1
-[sst_vpaned_height] 230
+[sst_vpaned_height] 303
 @28
 j1soc_TB.uut.WIFI.clk
 j1soc_TB.uut.WIFI.cs
@@ -34,12 +34,13 @@ j1soc_TB.uut.WIFI.EnviarDatosWIFI.datos[7:0]
 j1soc_TB.uut.WIFI.EnviarDatosWIFI.tx
 @820
 j1soc_TB.uut.WIFI.EnviarDatosWIFI.com1.data_send_u[7:0]
-@821
 j1soc_TB.uut.WIFI.EnviarDatosWIFI.envi.data_send[7:0]
 @28
-j1soc_TB.uut.WIFI.EnviarDatosWIFI.bussy
-j1soc_TB.uut.WIFI.c_bussy
-j1soc_TB.uut.WIFI.c_bussy
 j1soc_TB.uut.WIFI.EnviarDatosWIFI.ready_command1
+j1soc_TB.uut.WIFI.tx
+j1soc_TB.uut.WIFI.EnviarDatosWIFI.control1.state[2:0]
+j1soc_TB.uut.WIFI.c_bussy
+@29
+j1soc_TB.uut.WIFI.EnviarDatosWIFI.bussy_j1
 [pattern_trace] 1
 [pattern_trace] 0
