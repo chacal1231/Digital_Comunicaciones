@@ -72,7 +72,7 @@ module Comunicaciones ( input wire clk,
 		end else begin
 			case(state)
 					IDDLE: begin
-						timer = 28'd100;
+						timer = 28'd100000000;
 						if(str==1'b1) begin //(1)
 							RegCommand = command;
 							state=SAVE_COMM;

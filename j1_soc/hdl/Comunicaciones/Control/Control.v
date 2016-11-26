@@ -37,7 +37,7 @@ always @(posedge clk or negedge rst) begin
 			end
 			S_INIT: begin
 				start_datos = 1'b0;
-				timer 		= 28'd100;
+				timer 		= 28'd100000000;
 				start 		= 1'b1;
 				state 		= S_SEND;
 			end
