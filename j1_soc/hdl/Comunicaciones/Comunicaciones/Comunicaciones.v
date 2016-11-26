@@ -15,8 +15,7 @@ module Comunicaciones ( input wire clk,
 						input wire [7:0] command,
 						output wire tx,
 						output reg ready_command,
-						input wire str,
-						output reg bussy_m = 1'b0
+						input wire str
 	);
 
 	//Velocidad de transmision
@@ -30,12 +29,12 @@ module Comunicaciones ( input wire clk,
 	reg start 				= 1'b0;
 	reg [27:0] timer		= 28'd0;
 
-	localparam IDDLE = 		3'b000;
-	localparam SAVE_COMM = 	3'b001;
-	localparam READ_MEM = 	3'b010;
-	localparam START_SEND = 3'b011;
-	localparam WAIT_COMM = 	3'b100;
-	localparam ADD_CHAR = 	3'b101;
+	localparam IDDLE 		=	3'b000;
+	localparam SAVE_COMM	= 	3'b001;
+	localparam READ_MEM 	= 	3'b010;
+	localparam START_SEND 	= 	3'b011;
+	localparam WAIT_COMM 	= 	3'b100;
+	localparam STOP 	 	= 	3'b101;
 
 	reg [2:0] state = IDDLE;
 	reg stop;
@@ -75,52 +74,56 @@ module Comunicaciones ( input wire clk,
 					IDDLE: begin
 						timer = 28'd100;
 						if(str==1'b1) begin //(1)
-							bussy_m			= 1'b1;
-							RegCommand 		= command;
-							state 			= SAVE_COMM;
-							start_uart 		= 1'b1;
-							ready_command 	= 1'b0;
+							RegCommand = command;
+							state=SAVE_COMM;
+							start_uart = 1'b1;
+							ready_command = 1'b0;
 						end else begin //(0)
-							ready_command 	= 1'b1;
-							state 			= IDDLE;
-							start_uart 		= 1'b0;
+							ready_command = 1'b1;
+							state=IDDLE;
+							start_uart = 1'b0;
 						end
 					end
 				SAVE_COMM: begin //(2)
-					CrrCh 	= romMen_direcciones[RegCommand];
-					state 	= READ_MEM;
+					CrrCh = romMen_direcciones[RegCommand];
+					state = READ_MEM;
 				end
 				READ_MEM: begin //(3)
-					Data 	= romMen_commandos[CrrCh];
-					start 	= 1'b1;
-					state 	= START_SEND;
+					Data = romMen_commandos[CrrCh];
+					state = START_SEND;
 				end
 				START_SEND: begin //(4)
-					start 	= 1'b0;
-					state 	= WAIT_COMM;
+					state = WAIT_COMM;
 				end
 				WAIT_COMM: begin 
 					if(ready_u==0)begin //(5)
-						state = WAIT_COMM;
+						state=WAIT_COMM;
 					end else begin
 						if(Data==8'h0a)begin
 								if(timer>0) begin
-									timer 			= timer - 28'd1;
-									ready_command 	= 1'b1;
-									start_uart 		= 1'b0;	
+									timer = timer - 28'd1;
+									ready_command = 1'b1;
+									start_uart = 1'b0;	
 								end else begin
-								bussy_m	= 1'b0;
-								state 	= IDDLE;
+								state = IDDLE;
 							end	
 						end else begin // (6)
-							CrrCh = CrrCh + 1;
-							state = READ_MEM;
+							if(CrrCh < 8'd77)begin
+								CrrCh = CrrCh + 1;
+								state = READ_MEM;
+							end else begin
+								state = STOP;
+							end
+							
 						end
 					end
 				end
-				ADD_CHAR: begin //(7)
-						start = 1'b1;
-						state = START_SEND;
+				STOP: begin //(7)
+						if(str == 1'b1)begin
+							state = IDDLE;
+						end else begin
+							state = STOP;
+						end
 				end
 				default: begin
 						state 			= IDDLE;
@@ -131,7 +134,6 @@ module Comunicaciones ( input wire clk,
 						start           = 1'b0;
 						start_uart 		= 1'b0;	
 						timer 			= 28'd0;
-						bussy_m			= 1'b0;
 				end
 			endcase
 		end

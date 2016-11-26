@@ -18,7 +18,7 @@ module j1soc#(
    //output uart_tx, ledout;
    //output ledControl, ledUpdate;
    //inout i2c_sda, i2c_scl;
-   output c_tx, c_bussy, ledout;
+   output c_tx, c_bussy;
 
    //assign sys_rst_i = 1'b1;
 

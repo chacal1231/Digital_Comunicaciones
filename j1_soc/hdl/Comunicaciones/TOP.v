@@ -30,7 +30,9 @@ Control control1(	.clk(clk),
 					.start(start), 
 					.ready_command(ready_command1),
 					.start_datos(start_datos),
-					.start_in(start_j1)
+					.start_in(start_j1),
+					.bussy_e(bussy_e),
+					.bussy_m(bussy_m)
 				); 
 
 //Instanciar módulo comunicaciones
@@ -39,8 +41,7 @@ Comunicaciones com1(.clk(clk),
 					.command({5'd0,command_in}), 
 					.tx(tx_1), 
 					.ready_command(ready_command1), 
-					.str(start),
-					.bussy_m(bussy_m)
+					.str(start)
 				);
 
 EnviarDatos envi(	.clk(clk),

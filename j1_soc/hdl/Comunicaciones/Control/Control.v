@@ -1,10 +1,12 @@
 module Control(	input wire clk,
 				input wire rst,
-				output reg [2:0] command_1 = 3'b0,
+				output reg [2:0] command_1,
 				output reg start,
 				input wire ready_command,
 				output reg start_datos = 1'b0,
-				input wire start_in);
+				input wire start_in,
+				input wire bussy_e,
+				output reg bussy_m=1'b0);
 
 reg [27:0] timer;
 
@@ -14,8 +16,10 @@ localparam S_INIT		=  	3'b001;
 localparam S_SEND 		= 	3'b010;
 localparam S_WAITCOM 	= 	3'b100;
 localparam S_TIMER 		= 	3'b110;
+localparam S_WAITD		=   3'b111;
 
 reg [2:0] state = S_WSTART;
+
 
 always @(posedge clk or negedge rst) begin
 	if (!rst) begin
@@ -24,15 +28,18 @@ always @(posedge clk or negedge rst) begin
 		case(state)
 			S_WSTART:begin
 				if(start_in==1'b1)begin
-					state = S_INIT;
+					bussy_m		=1'b1;
+					command_1	= 3'b0;
+					state 		= S_INIT;
 				end else begin
 					state = S_WSTART;
 				end
 			end
 			S_INIT: begin
-				timer = 28'd100;
-				start = 1'b1;
-				state = S_SEND;
+				start_datos = 1'b0;
+				timer 		= 28'd100;
+				start 		= 1'b1;
+				state 		= S_SEND;
 			end
 			S_SEND: begin
 				if(ready_command==1'b1) begin
@@ -53,15 +60,24 @@ always @(posedge clk or negedge rst) begin
 					timer = timer - 28'd1;
 					state = S_TIMER;
 				end else begin
-					start = 1'b0;
-					if(command_1 == 3'd3) begin
+					if(command_1 > 3'd2) begin
+						bussy_m		= 1'b0;
 						start 		= 1'b0;
 						start_datos	= 1'b1;
+						state		= S_WAITD;
 					end else begin
-						state = S_WSTART;
+						state = S_INIT;
 						command_1 = command_1 + 1;
 					end
 					
+				end
+			end
+			S_WAITD:begin
+				if(bussy_e==1'b0)begin
+					start_datos = 1'b0;
+					state = S_WSTART;
+				end else begin
+					state = S_WAITD;
 				end
 			end
 			default: begin

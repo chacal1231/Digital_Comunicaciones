@@ -29,6 +29,7 @@ module EnviarDatos(	input wire clk,
 	reg	[27:0] timer_3		= 28'd0;
 	reg	[27:0] timer_4		= 28'd0;
 	reg [27:0] timer_5		= 28'd0;
+	reg [27:0] timer_6		= 28'd0;
 	reg [7:0] numeros		= 8'd0;
 	reg multip 				= 1'b0;
 	reg [7:0] data_in;
@@ -76,11 +77,12 @@ always @(posedge clk or negedge rst) begin
 					timer_3		= 28'd4;
 					timer_4		= 28'd5;
 					timer_5		= 28'd5;
-					state		= WAIT;
+					timer_6     = 28'd5;
 					start_uart 	= 1'b0;
+					state		= WAIT;
 				end else begin
-						state = INIT;
-						start_uart = 1'b0;
+						state 		= INIT;
+						start_uart 	= 1'b0;
 					end
 				end
 				WAIT:begin
@@ -256,7 +258,7 @@ always @(posedge clk or negedge rst) begin
 					end else begin
 					if(numeros<8'd27)begin
 						start_uart 	= 1'b1;
-						timer_2 	= 28'd5;
+						timer_2 	= 28'd25;
 						numeros 	= numeros + 8'd1;
 						state 		= SEND_DATA_3;
 					end else begin
@@ -267,8 +269,14 @@ always @(posedge clk or negedge rst) begin
 				end
 				STOP:begin
 					start_uart	= 1'b0;
-					bussy_e	 	= 1'b0;
-					state 		= INIT;
+					numeros		= 8'd0;
+					if(timer_6>0)begin
+						bussy_e	 	= 1'b0;
+						timer_6		= timer_6 - 28'd1;
+						state		= STOP;
+					end else begin
+						state 		= INIT;
+					end
 				end					
 				default:begin
 					state 		= INIT;
