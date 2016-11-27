@@ -9,9 +9,11 @@ module EnviarDatos_TB;
     reg [7:0] datos;
     wire [7:0] data_send;
     reg [7:0] numeros;
+    wire comm_in;
+    wire bussy_e;
 
     EnviarDatos 
-        inst1(clk, rst, start, datos, tx);
+        inst1(clk, rst, start, datos, tx, comm_in, bussy_e);
 
     always #1 clk = ~clk; 
 

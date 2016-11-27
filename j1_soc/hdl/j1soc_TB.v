@@ -31,7 +31,7 @@ always sys_clk_i = #10 ~sys_clk_i;    //50MHz
 initial begin: TEST_CASE
   $dumpfile("j1soc_TB.vcd");
   $dumpvars(-1, uut);
-  #15000000 $finish;
+  #19000000 $finish;
 end
 
 endmodule

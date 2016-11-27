@@ -15,7 +15,8 @@ module Comunicaciones ( input wire clk,
 						input wire [7:0] command,
 						output wire tx,
 						output reg ready_command,
-						input wire str
+						input wire str,
+						output reg bussyComunicaciones = 1'b0
 	);
 
 	//Velocidad de transmision
@@ -32,9 +33,10 @@ module Comunicaciones ( input wire clk,
 	localparam IDDLE 		=	3'b000;
 	localparam SAVE_COMM	= 	3'b001;
 	localparam READ_MEM 	= 	3'b010;
-	localparam START_SEND 	= 	3'b011;
-	localparam WAIT_COMM 	= 	3'b100;
-	localparam STOP 	 	= 	3'b101;
+	localparam START_SEND 	= 	3'b100;
+	localparam WAIT_COMM 	= 	3'b110;
+	localparam WAIT_MEM		=   3'b011;
+	localparam STOP 	 	= 	3'b111;
 
 	reg [2:0] state = IDDLE;
 	reg stop;
@@ -74,6 +76,7 @@ module Comunicaciones ( input wire clk,
 					IDDLE: begin
 						timer = 28'd100000000;
 						if(str==1'b1) begin //(1)
+							bussyComunicaciones = 1'b1;
 							RegCommand = command;
 							state=SAVE_COMM;
 							start_uart = 1'b1;
@@ -99,26 +102,32 @@ module Comunicaciones ( input wire clk,
 					if(ready_u==0)begin //(5)
 						state=WAIT_COMM;
 					end else begin
-						if(Data==8'h0a)begin
-								if(timer>0) begin
+						state = WAIT_MEM;
+						end
+				end
+				WAIT_MEM:begin
+						if(CrrCh < 8'd76)begin
+							if(Data==8'h0a)begin
+								if(timer>0)begin
 									timer = timer - 28'd1;
-									ready_command = 1'b1;
-									start_uart = 1'b0;	
+									ready_command 	= 1'b1;
+									start_uart 		= 1'b0;
+									state 			= WAIT_MEM;		
 								end else begin
-								state = IDDLE;
-							end	
-						end else begin // (6)
-							if(CrrCh < 8'd77)begin
+									state = IDDLE;
+								end
+							end else begin
 								CrrCh = CrrCh + 1;
 								state = READ_MEM;
-							end else begin
-								state = STOP;
 							end
-							
+						end else begin
+							ready_command 	= 1'b1;
+							state 			= STOP;
 						end
-					end
 				end
 				STOP: begin //(7)
+						bussyComunicaciones = 1'b0;
+						start_uart 			= 1'b0;
 						if(str == 1'b1)begin
 							state = IDDLE;
 						end else begin

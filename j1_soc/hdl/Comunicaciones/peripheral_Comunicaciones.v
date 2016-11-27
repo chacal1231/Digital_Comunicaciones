@@ -1,4 +1,4 @@
-module peripheral_Comunicaciones(clk , rst , d_in , cs , addr , rd , wr, d_out, tx);
+module peripheral_Comunicaciones(clk , rst , d_in , cs , addr , rd , wr, d_out, tx, ledout);
   
   input clk;
   input rst;
@@ -9,6 +9,7 @@ module peripheral_Comunicaciones(clk , rst , d_in , cs , addr , rd , wr, d_out, 
   input wr;
   output reg [15:0]d_out;
   output tx;
+  output reg ledout=0;
 
 //------------------------------------ regs and wires-------------------------------
 
@@ -34,7 +35,8 @@ case (addr)
 4'h2:begin s = (cs && wr) ? 6'b000010 : 6'b000000 ;end //dato
 4'h4:begin s = (cs && wr) ? 6'b000100 : 6'b000000 ;end //comando
 
-4'h6:begin s = (cs && rd) ? 6'b001000 : 6'b000000 ;end //bussy
+4'h6:begin s = (cs && rd) ? 6'b001000 : 6'b000000 ;end  //bussy
+4'h8:begin s = (cs && rd) ? 6'b010000 : 6'b000000 ;end //ledout
 default:begin s = 6'b000000 ; end
 endcase
 end//------------------address_decoder--------------------------------
@@ -43,9 +45,11 @@ end//------------------address_decoder--------------------------------
 
 
 always @(negedge clk) begin//-------------------- escritura de registros 
-start       = (s[0]) ? d_in :   start;
-dato_in   	= (s[1]) ? d_in : 	dato_in;	//Write Registers
-comando_in	= (s[2]) ? d_in : comando_in;	//Write Registers
+start       = (s[0]) ? d_in[0] :   start;
+dato_in   	= (s[1]) ? d_in[7:0] : 	dato_in;	//Write Registers
+comando_in	= (s[2]) ? d_in[7:0] : 	comando_in;	//Write Registers
+ledout		=   (s[3]) ? d_in[0] : 	ledout;
+
 //init = (s[2]) ? d_in : init;	//Write Registers
 
 end//------------------------------------------- escritura de registros
