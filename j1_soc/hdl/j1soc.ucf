@@ -2,7 +2,7 @@
 NET "sys_clk_i"     LOC = "P84" | IOSTANDARD = LVCMOS33;	# 50MHz Clock
 
 # Uart TX
-NET "c_tx"      LOC = "P70"	| IOSTANDARD = LVCMOS33; 	# RPi RX
+NET "c_tx"      LOC = "P70"	| IOSTANDARD = LVCMOS33; 	# RPi RX //P70 UARTPI P78 WIFI
 //NET "uart_rx"      LOC = "P69"	| IOSTANDARD = LVCMOS33; 	# RPi TX
 
 # LED

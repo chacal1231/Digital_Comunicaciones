@@ -73,12 +73,12 @@ always @(posedge clk or negedge rst) begin
 					if(start==1'b1)begin
 					bussy_e		= 1'b1;
 					data_in 	= datos;
-					timer 		= 28'd25000000;
-					timer_2 	= 28'd25000000;
-					timer_3		= 28'd4000;
-					timer_4		= 28'd2500;
-					timer_5		= 28'd2500;
-					timer_6     = 28'd2500;
+					timer 		= 28'd25;
+					timer_2 	= 28'd25;
+					timer_3		= 28'd4;
+					timer_4		= 28'd5;
+					timer_5		= 28'd5;
+					timer_6     = 28'd5;
 					start_uart 	= 1'b0;
 					state		= WAIT;
 				end else begin
@@ -259,7 +259,7 @@ always @(posedge clk or negedge rst) begin
 					end else begin
 					if(numeros<8'd29)begin
 						start_uart 	= 1'b1;
-						timer_2 	= 28'd25000000;
+						timer_2 	= 28'd25;
 						numeros 	= numeros + 8'd1;
 						state 		= SEND_DATA_3;
 					end else begin

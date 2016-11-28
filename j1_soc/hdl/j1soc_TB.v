@@ -15,7 +15,7 @@ j1soc uut (
 	sys_clk_i, sys_rst_i, //System
     //uart_tx, uart_rx, ledout,      //Uart
     //ledControl, ledUpdate, i2c_sda, i2c_scl, 
-    c_tx, c_bussy //Comunicaciones
+    c_tx, c_bussy, ledout //Comunicaciones
 );
 
 initial begin

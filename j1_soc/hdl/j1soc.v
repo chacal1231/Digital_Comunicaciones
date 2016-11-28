@@ -68,7 +68,7 @@ module j1soc#(
 
 
   peripheral_Comunicaciones WIFI(.clk(sys_clk_i), .rst(sys_rst_i), .d_in(j1_io_dout),
-                                .cs(cs[2]), .addr(j1_io_addr[3:0]), .rd(j1_io_rd), .wr(j1_io_wr), .d_out(Comunicaciones_dout), .tx(c_tx), .ledout(ledout));  
+                                .cs(cs[2]), .addr(j1_io_addr[3:0]), .rd(j1_io_rd), .wr(j1_io_wr), .d_out(Comunicaciones_dout), .tx(c_tx), .ledout(ledout), .c_bussy(c_bussy));  
 
 
   // ============== Chip_Select (Addres decoder) ========================  // se hace con los 8 bits mas significativos de j1_io_addr

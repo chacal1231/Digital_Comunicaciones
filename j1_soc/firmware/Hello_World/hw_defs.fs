@@ -30,8 +30,8 @@ h# 6908 constant uart_flagrcv
 h# 9900 constant com_start
 h# 9902 constant com_datos
 h# 9904 constant com_comando
-h# 9906 constant com_bussy
-h# 9908 constant com_led
+h# 9906 constant com_led
+h# 9908 constant com_bussy
 
 \ memory map gpout
 \ h# 6000 constant gp_out0
