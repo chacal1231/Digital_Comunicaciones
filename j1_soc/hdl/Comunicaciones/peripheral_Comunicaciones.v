@@ -1,4 +1,4 @@
-module peripheral_Comunicaciones(clk , rst , d_in , cs , addr , rd , wr, d_out, tx, ledout, c_bussy);
+module peripheral_Comunicaciones(clk , rst , d_in , cs , addr , rd , wr, d_out, tx, ledout);
   
   input clk;
   input rst;
@@ -8,9 +8,8 @@ module peripheral_Comunicaciones(clk , rst , d_in , cs , addr , rd , wr, d_out, 
   input rd;
   input wr;
   output reg [15:0]d_out;
-  output tx, c_bussy;
-  output reg ledout=0;
-
+  output tx;
+  output reg ledout = 0;
 //------------------------------------ regs and wires-------------------------------
 
 reg [5:0] s; 	//selector mux_4  and write registers
@@ -35,6 +34,7 @@ case (addr)
 6'h2:begin s = (cs && wr) ? 6'b000010 : 6'b000000 ;end //dato     (wr)
 6'h4:begin s = (cs && wr) ? 6'b000100 : 6'b000000 ;end //comando  (wr)
 6'h6:begin s = (cs && wr) ? 6'b001000 : 6'b000000 ;end //ledout   (wr)
+
 6'h8:begin s = (cs && rd) ? 6'b010000 : 6'b000000 ;end  //bussy   (rd)
 default:begin s = 6'b000000 ; end
 endcase

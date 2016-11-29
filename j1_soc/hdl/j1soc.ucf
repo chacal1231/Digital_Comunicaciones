@@ -20,3 +20,8 @@ NET "sys_rst_i"        LOC = "P123" | IOSTANDARD = LVCMOS33 | PULLDOWN; #RPI_GPI
 
 NET "sys_rst_i" CLOCK_DEDICATED_ROUTE = FALSE;
 
+//# Start
+//NET "start"      LOC = "P79"	| IOSTANDARD = LVCMOS33; 	# RPi RX //P70 UARTPI P78 WIFI
+
+//# Bussy
+//NET "c_bussy"      LOC = "P80"	| IOSTANDARD = LVCMOS33; 	# RPi RX //P70 UARTPI P78 WIFI

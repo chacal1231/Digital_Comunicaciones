@@ -5,7 +5,7 @@ module j1soc#(
               parameter baudRateUart = 115200  
   )
   (
-    sys_clk_i, sys_rst_i, c_tx, c_bussy, ledout
+    sys_clk_i, sys_rst_i, c_tx,ledout
     );
 
    input sys_clk_i;
@@ -14,7 +14,7 @@ module j1soc#(
    //output uart_tx, ledout;
    //output ledControl, ledUpdate;
    //inout i2c_sda, i2c_scl;
-   output c_tx, c_bussy, ledout;
+   output c_tx, ledout;
 
    //assign sys_rst_i = 1'b1;
 
@@ -68,7 +68,7 @@ module j1soc#(
 
 
   peripheral_Comunicaciones WIFI(.clk(sys_clk_i), .rst(sys_rst_i), .d_in(j1_io_dout),
-                                .cs(cs[2]), .addr(j1_io_addr[3:0]), .rd(j1_io_rd), .wr(j1_io_wr), .d_out(Comunicaciones_dout), .tx(c_tx), .ledout(ledout), .c_bussy(c_bussy));  
+                                .cs(cs[2]), .addr(j1_io_addr[3:0]), .rd(j1_io_rd), .wr(j1_io_wr), .d_out(Comunicaciones_dout), .tx(c_tx), .ledout(ledout));  
 
 
   // ============== Chip_Select (Addres decoder) ========================  // se hace con los 8 bits mas significativos de j1_io_addr
