@@ -1,0 +1,10 @@
+verilog work ../j1soc.v
+verilog work ../j1.v
+verilog work ../dpram.v
+verilog work ../Comunicaciones/TOP.v
+verilog work ../Comunicaciones/Comunicaciones/Comunicaciones.v
+verilog work ../Comunicaciones/Control/Control.v
+verilog work ../Comunicaciones/EnviarDatos/EnviarDatos.v
+verilog work ../Comunicaciones/EnviarDatos/uart_tx.v
+verilog work ../Comunicaciones/EnviarDatos/baudgen.v
+verilog work ../Comunicaciones/peripheral_Comunicaciones.v

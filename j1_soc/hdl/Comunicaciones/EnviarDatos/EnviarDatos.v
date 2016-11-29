@@ -122,30 +122,6 @@ always @(posedge clk or negedge rst) begin
 						end
 					end
 					8'd1:begin
-						numeros = 8'd16;
-						if(timer_4>0)begin
-						start_uart 	= 1'b1;
-						state 		= SEND_DATA;
-						timer_4 	= timer_4 - 28'd1;
-						end else begin
-						start_uart	= 1'b1;
-						numeros		= 8'd27;
-						state		= DATA_MED;
-						end
-					end
-					8'd2:begin
-						numeros = 8'd17;
-						if(timer_4>0)begin
-						start_uart 	= 1'b1;
-						state 		= SEND_DATA;
-						timer_4 	= timer_4 - 28'd1;
-						end else begin
-						start_uart	= 1'b1;
-						numeros		= 8'd27;
-						state		= DATA_MED;
-						end
-					end
-					8'd3:begin
 						numeros = 8'd18;
 						if(timer_4>0)begin
 						start_uart 	= 1'b1;
@@ -157,7 +133,7 @@ always @(posedge clk or negedge rst) begin
 						state		= DATA_MED;
 						end
 					end
-					8'd4:begin
+					8'd2:begin
 						numeros = 8'd19;
 						if(timer_4>0)begin
 						start_uart 	= 1'b1;
@@ -169,7 +145,7 @@ always @(posedge clk or negedge rst) begin
 						state		= DATA_MED;
 						end
 					end
-					8'd5:begin
+					8'd3:begin
 						numeros = 8'd20;
 						if(timer_4>0)begin
 						start_uart 	= 1'b1;
@@ -181,7 +157,7 @@ always @(posedge clk or negedge rst) begin
 						state		= DATA_MED;
 						end
 					end
-					8'd6:begin
+					8'd4:begin
 						numeros = 8'd21;
 						if(timer_4>0)begin
 						start_uart 	= 1'b1;
@@ -193,7 +169,7 @@ always @(posedge clk or negedge rst) begin
 						state		= DATA_MED;
 						end
 					end
-					8'd7:begin
+					8'd5:begin
 						numeros = 8'd22;
 						if(timer_4>0)begin
 						start_uart 	= 1'b1;
@@ -205,7 +181,7 @@ always @(posedge clk or negedge rst) begin
 						state		= DATA_MED;
 						end
 					end
-					8'd8:begin
+					8'd6:begin
 						numeros = 8'd23;
 						if(timer_4>0)begin
 						start_uart 	= 1'b1;
@@ -217,8 +193,32 @@ always @(posedge clk or negedge rst) begin
 						state		= DATA_MED;
 						end
 					end
-					8'd9:begin
+					8'd7:begin
 						numeros = 8'd24;
+						if(timer_4>0)begin
+						start_uart 	= 1'b1;
+						state 		= SEND_DATA;
+						timer_4 	= timer_4 - 28'd1;
+						end else begin
+						start_uart	= 1'b1;
+						numeros		= 8'd27;
+						state		= DATA_MED;
+						end
+					end
+					8'd8:begin
+						numeros = 8'd25;
+						if(timer_4>0)begin
+						start_uart 	= 1'b1;
+						state 		= SEND_DATA;
+						timer_4 	= timer_4 - 28'd1;
+						end else begin
+						start_uart	= 1'b1;
+						numeros		= 8'd27;
+						state		= DATA_MED;
+						end
+					end
+					8'd9:begin
+						numeros = 8'd26;
 						if(timer_4>0)begin
 						start_uart 	= 1'b1;
 						state 		= SEND_DATA;

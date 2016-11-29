@@ -1,0 +1,13 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Nov 29 10:40:40 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "c_tx" LOCATE = SITE "P70" LEVEL 1;
+COMP "ledout" LOCATE = SITE "P39" LEVEL 1;
+COMP "sys_clk_i" LOCATE = SITE "P84" LEVEL 1;
+COMP "sys_rst_i" LOCATE = SITE "P123" LEVEL 1;
+PIN sys_rst_i_pin<0> = BEL "sys_rst_i" PINNAME PAD;
+PIN "sys_rst_i_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+SCHEMATIC END;
+
