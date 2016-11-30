@@ -74,7 +74,7 @@ module Comunicaciones ( input wire clk,
 		end else begin
 			case(state)
 					IDDLE: begin
-						timer = 28'd100000000;
+						timer = 28'd50000000;
 						if(str==1'b1) begin //(1)
 							bussyComunicaciones = 1'b1;
 							RegCommand = command;

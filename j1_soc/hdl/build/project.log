@@ -701,8 +701,7 @@ WARNING:Xst:1710 - FF/Latch <command_1_2> (without init value) has a constant va
 WARNING:Xst:1710 - FF/Latch <command_1_2> (without init value) has a constant value of 0 in block <Control>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <Comunicaciones> ...
-WARNING:Xst:1293 - FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_4_15> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_4_14> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_4_14> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_4_13> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_4_12> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_3_27> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
@@ -728,7 +727,9 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIF
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_26> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_25> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/control1/timer_27> (without init value) has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/control1/timer_26> (without init value) has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/com1/timer_27> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/com1/timer_26> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_5_27> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_5_26> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_5_25> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
@@ -757,6 +758,7 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIF
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_4_18> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_4_17> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_4_16> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WIFI/EnviarDatosWIFI/envi/timer_4_15> has a constant value of 0 in block <j1soc>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -768,8 +770,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 334
- Flip-Flops                                            : 334
+# Registers                                            : 332
+ Flip-Flops                                            : 332
 
 =========================================================================
 
@@ -792,24 +794,24 @@ Top Level Output File Name         : project.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1328
+# BELS                             : 1318
 #      GND                         : 1
-#      INV                         : 152
+#      INV                         : 150
 #      LUT1                        : 36
 #      LUT2                        : 38
-#      LUT3                        : 126
+#      LUT3                        : 123
 #      LUT4                        : 102
-#      LUT5                        : 129
-#      LUT6                        : 307
-#      MUXCY                       : 227
+#      LUT5                        : 127
+#      LUT6                        : 308
+#      MUXCY                       : 225
 #      MUXF7                       : 1
 #      VCC                         : 1
-#      XORCY                       : 208
-# FlipFlops/Latches                : 334
+#      XORCY                       : 206
+# FlipFlops/Latches                : 332
 #      FD                          : 22
 #      FD_1                        : 1
 #      FDC                         : 12
-#      FDE                         : 209
+#      FDE                         : 207
 #      FDE_1                       : 18
 #      FDP                         : 1
 #      FDR                         : 43
@@ -833,17 +835,17 @@ Selected Device : 6slx4tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             333  out of   4800     6%  
- Number of Slice LUTs:                  906  out of   2400    37%  
-    Number used as Logic:               890  out of   2400    37%  
+ Number of Slice Registers:             331  out of   4800     6%  
+ Number of Slice LUTs:                  900  out of   2400    37%  
+    Number used as Logic:               884  out of   2400    36%  
     Number used as Memory:               16  out of   1200     1%  
        Number used as RAM:               16
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    925
-   Number with an unused Flip Flop:     592  out of    925    64%  
-   Number with an unused LUT:            19  out of    925     2%  
-   Number of fully used LUT-FF pairs:   314  out of    925    33%  
+ Number of LUT Flip Flop pairs used:    919
+   Number with an unused Flip Flop:     588  out of    919    63%  
+   Number with an unused LUT:            19  out of    919     2%  
+   Number of fully used LUT-FF pairs:   312  out of    919    33%  
    Number of unique control sets:        21
 
 IO Utilization: 
@@ -877,7 +879,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-sys_clk_i                          | BUFGP                  | 352   |
+sys_clk_i                          | BUFGP                  | 350   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -900,7 +902,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sys_clk_i'
   Clock period: 15.931ns (frequency: 62.772MHz)
-  Total number of paths / destination ports: 975844 / 833
+  Total number of paths / destination ports: 975634 / 830
 -------------------------------------------------------------------------
 Delay:               7.965ns (Levels of Logic = 20)
   Source:            WIFI/EnviarDatosWIFI/bussy_j1 (FF)
@@ -940,7 +942,7 @@ Delay:               7.965ns (Levels of Logic = 20)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'sys_clk_i'
-  Total number of paths / destination ports: 652 / 402
+  Total number of paths / destination ports: 650 / 400
 -------------------------------------------------------------------------
 Offset:              8.855ns (Levels of Logic = 5)
   Source:            sys_rst_i (PAD)
@@ -998,7 +1000,7 @@ sys_clk_i      |   14.979|    7.965|    6.729|         |
 
 
 Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 12.09 secs
+Total CPU time to Xst completion: 12.32 secs
  
 --> 
 
@@ -1006,6 +1008,6 @@ Total CPU time to Xst completion: 12.09 secs
 Total memory usage is 388184 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   93 (   0 filtered)
+Number of warnings :   95 (   0 filtered)
 Number of infos    :    7 (   0 filtered)
 

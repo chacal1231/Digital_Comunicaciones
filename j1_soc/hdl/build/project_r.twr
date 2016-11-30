@@ -36,7 +36,7 @@ Setup/Hold to clock sys_clk_i
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-sys_rst_i   |    8.905(R)|      SLOW  |   -0.357(R)|      FAST  |sys_clk_i_BUFGP   |   0.000|
+sys_rst_i   |    9.996(R)|      SLOW  |   -0.323(R)|      SLOW  |sys_clk_i_BUFGP   |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock sys_clk_i to Pad
@@ -44,7 +44,7 @@ Clock sys_clk_i to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-c_tx        |        12.824(R)|      SLOW  |         5.464(R)|      FAST  |sys_clk_i_BUFGP   |   0.000|
+c_tx        |        12.123(R)|      SLOW  |         5.307(R)|      FAST  |sys_clk_i_BUFGP   |   0.000|
 ledout      |         8.831(F)|      SLOW  |         3.783(F)|      FAST  |sys_clk_i_BUFGP   |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
@@ -53,11 +53,11 @@ Clock to Setup on destination clock sys_clk_i
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-sys_clk_i      |   15.973|    9.618|    7.653|         |
+sys_clk_i      |   16.905|    8.941|    7.296|         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Tue Nov 29 10:40:57 2016 
+Analysis completed Tue Nov 29 13:46:03 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:

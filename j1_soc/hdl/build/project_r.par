@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-mcmahonpc-X450CP::  Tue Nov 29 10:40:42 2016
+mcmahonpc-X450CP::  Tue Nov 29 13:45:48 2016
 
 par -w project.ncd project_r.ncd 
 
@@ -26,16 +26,16 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   333 out of   4,800    6%
-    Number used as Flip Flops:                 333
+  Number of Slice Registers:                   331 out of   4,800    6%
+    Number used as Flip Flops:                 331
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        789 out of   2,400   32%
-    Number used as logic:                      774 out of   2,400   32%
-      Number using O6 output only:             475
+  Number of Slice LUTs:                        784 out of   2,400   32%
+    Number used as logic:                      769 out of   2,400   32%
+      Number using O6 output only:             473
       Number using O5 output only:              34
-      Number using O5 and O6:                  265
+      Number using O5 and O6:                  262
       Number used as ROM:                        0
     Number used as Memory:                      12 out of   1,200    1%
       Number used as Dual Port RAM:             12
@@ -50,12 +50,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   257 out of     600   42%
+  Number of occupied Slices:                   249 out of     600   41%
   Number of MUXCYs used:                       272 out of   1,200   22%
-  Number of LUT Flip Flop pairs used:          820
-    Number with an unused Flip Flop:           534 out of     820   65%
-    Number with an unused LUT:                  31 out of     820    3%
-    Number of fully used LUT-FF pairs:         255 out of     820   31%
+  Number of LUT Flip Flop pairs used:          806
+    Number with an unused Flip Flop:           522 out of     806   64%
+    Number with an unused LUT:                  22 out of     806    2%
+    Number of fully used LUT-FF pairs:         262 out of     806   32%
     Number of slice register sites lost
       to control set restrictions:               0 out of   4,800    0%
 
@@ -103,18 +103,18 @@ Router effort level (-rl):    High
 Starting initial Timing Analysis.  REAL time: 3 secs 
 Finished initial Timing Analysis.  REAL time: 3 secs 
 
-WARNING:Par:288 - The signal cpu0/Mram_dstack1_RAMD_D1_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal cpu0/Mram_dstack2_RAMD_D1_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal cpu0/Mram_dstack1_RAMD_D1_O has no load.  PAR will not attempt to route this signal.
 Starting Router
 
 
-Phase  1  : 4460 unrouted;      REAL time: 3 secs 
+Phase  1  : 4442 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 3869 unrouted;      REAL time: 3 secs 
+Phase  2  : 3854 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 1824 unrouted;      REAL time: 5 secs 
+Phase  3  : 1815 unrouted;      REAL time: 6 secs 
 
-Phase  4  : 1839 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  4  : 1825 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
 Updating file: project_r.ncd with current fully routed design.
 
@@ -130,7 +130,7 @@ Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 9
 
 Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
 Total REAL time to Router completion: 9 secs 
-Total CPU time to Router completion: 9 secs 
+Total CPU time to Router completion: 10 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -150,8 +150,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net sys | SETUP       |         N/A|    16.665ns|     N/A|           0
-  _clk_i_BUFGP                              | HOLD        |     0.436ns|            |       0|           0
+  Autotimespec constraint for clock net sys | SETUP       |         N/A|    15.855ns|     N/A|           0
+  _clk_i_BUFGP                              | HOLD        |     0.399ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -170,9 +170,9 @@ All signals are completely routed.
 WARNING:Par:283 - There are 2 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 Total REAL time to PAR completion: 9 secs 
-Total CPU time to PAR completion: 9 secs 
+Total CPU time to PAR completion: 10 secs 
 
-Peak Memory Usage:  613 MB
+Peak Memory Usage:  609 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
