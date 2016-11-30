@@ -34,6 +34,7 @@ module j1soc#(
    //wire			[15:0] dp_ram_dout;
    wire     [15:0] uvSensor_dout;
    wire     [15:0] Comunicaciones_dout;
+   wire     [15:0] Datos_dout;
 
 //------------------------------------ regs and wires-------------------------------
 
@@ -68,7 +69,10 @@ module j1soc#(
 
 
   peripheral_Comunicaciones WIFI(.clk(sys_clk_i), .rst(sys_rst_i), .d_in(j1_io_dout),
-                                .cs(cs[2]), .addr(j1_io_addr[3:0]), .rd(j1_io_rd), .wr(j1_io_wr), .d_out(Comunicaciones_dout), .tx(c_tx), .ledout(ledout));  
+                                .cs(cs[2]), .addr(j1_io_addr[3:0]), .rd(j1_io_rd), .wr(j1_io_wr), .d_out(Comunicaciones_dout), .tx(c_tx), .ledout(ledout));
+
+  peripheral_Datos Datos(.clk(sys_clk_i), .rst(sys_rst_i), .d_in(j1_io_dout),
+                                .cs(cs[3]), .addr(j1_io_addr[3:0]), .rd(j1_io_rd), .wr(j1_io_wr), .d_out(Datos_dout));    
 
 
   // ============== Chip_Select (Addres decoder) ========================  // se hace con los 8 bits mas significativos de j1_io_addr
@@ -84,6 +88,7 @@ module j1soc#(
         //8'h73:    cs= 8'b00000010;     //everloop
         //8'h74:    cs= 8'b00000001;     //uvSensor
         8'h99:    cs= 8'b00000100;   //Comunicaciones
+        8'h77:    cs= 8'b00001000;   //Datos
         default:  cs= 8'b00000000;
       endcase
   end
@@ -105,6 +110,7 @@ module j1soc#(
         //8'b00000010: j1_io_din = {16{1'bX}};      //everloop
         //8'b00000001: j1_io_din = uvSensor_dout;      //uvSensor
         8'b00000100: j1_io_din = Comunicaciones_dout;
+        8'b00001000: j1_io_din = Datos_dout;
         default:   j1_io_din = {16{1'bX}};
       endcase
   end

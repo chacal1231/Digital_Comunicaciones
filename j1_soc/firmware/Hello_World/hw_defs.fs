@@ -33,6 +33,19 @@ h# 9904 constant com_comando
 h# 9906 constant com_led
 h# 9908 constant com_bussy
 
+\ Adquisición de datos
+h# 7700 constant Temp
+h# 7702 constant Peso
+h# 7704 constant Nluz
+h# 7706 constant EtapaCre
+h# 7708 constant Dagua
+h# 770A constant Nagua
+h# 770B constant Pconsu
+h# 770C constant CPoten
+h# 771D constant Tetha
+h# 771E constant Fhi
+
+
 \ memory map gpout
 \ h# 6000 constant gp_out0
 \ h# 6001 constant gp_out1

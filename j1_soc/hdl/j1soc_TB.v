@@ -15,7 +15,7 @@ j1soc uut (
 	sys_clk_i, sys_rst_i, //System
     //uart_tx, uart_rx, ledout,      //Uart
     //ledControl, ledUpdate, i2c_sda, i2c_scl, 
-    c_tx, c_bussy, ledout //Comunicaciones
+    c_tx, ledout //Comunicaciones
 );
 
 initial begin
@@ -31,7 +31,7 @@ always sys_clk_i = #10 ~sys_clk_i;    //50MHz
 initial begin: TEST_CASE
   $dumpfile("j1soc_TB.vcd");
   $dumpvars(-1, uut);
-  #19000000 $finish;
+  #30000000 $finish;
 end
 
 endmodule

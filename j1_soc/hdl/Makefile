@@ -41,7 +41,7 @@ SRC_CORE 	= j1.v dpram.v
 #SRC_GPIN	= $(GPIN)/peripheral_gpin.v
 #SRC_EVERLOOP = $(EVERLOOP)/everloop.v $(EVERLOOP)/everloopRAM.v $(EVERLOOP)/everloop_interface.v 
 #SRC_UVSENSOR = $(UVSENSOR)/uvSensor.v $(UVSENSOR)/control/control.v $(UVSENSOR)/i2c/i2c_master.v $(UVSENSOR)/peripheral_uvSensor.v 
-SRC_WIFI	 = $(WIFI)/TOP.v $(WIFI)/Comunicaciones/Comunicaciones.v $(WIFI)/Control/Control.v $(WIFI)/EnviarDatos/EnviarDatos.v $(WIFI)/EnviarDatos/uart_tx.v $(WIFI)/EnviarDatos/baudgen.v $(WIFI)/peripheral_Comunicaciones.v
+SRC_WIFI	 = $(WIFI)/TOP.v $(WIFI)/Comunicaciones/Comunicaciones.v $(WIFI)/Control/Control.v $(WIFI)/EnviarDatos/EnviarDatos.v $(WIFI)/EnviarDatos/uart_tx.v $(WIFI)/EnviarDatos/baudgen.v $(WIFI)/peripheral_Comunicaciones.v $(WIFI)/peripheral_Datos.v
 #SRC         = $(DESIGN).v $(SRC_CORE) $(SRC_DPRAMP) $(SRC_UART) $(SRC_MULT) $(SRC_DIV) $(SRC_GPOUT) $(SRC_GPIN)
 SRC          = $(DESIGN).v $(SRC_CORE) $(SRC_DPRAMP) $(SRC_UART) $(SRC_EVERLOOP) $(SRC_UVSENSOR) $(SRC_WIFI)
 

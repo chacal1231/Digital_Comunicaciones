@@ -7,70 +7,69 @@ d# 0 do delay_1ms loop
 ;
 
 : EnviarTemp
-h# 39 com_datos !
+Temp @ com_datos !
 d# 0 com_comando !
 d# 1 com_start !
 d# 0 com_start !
 ;
 
 : EnviarPeso
-h# 32 com_datos !
+Peso @ com_datos !
 d# 1 com_comando !
 d# 1 com_start !
 d# 0 com_start !
 ;
 
 : EnviarNluz
-h# 33 com_datos !
+Nluz @ com_datos !
 d# 2 com_comando !
 d# 1 com_start !
 d# 0 com_start !
 ;
 
 : EnviarEtapa
-h# 38 com_datos !
+EtapaCre @ com_datos !
 d# 3 com_comando !
 d# 1 com_start !
 d# 0 com_start !
 ;
 
 : EnviarDagua
-h# 35 com_datos !
+Dagua @ com_datos !
 d# 4 com_comando !
 d# 1 com_start !
 d# 0 com_start !
 ;
 
 : EnviarNagua
-h# 36 com_datos !
+Nagua @ com_datos !
 d# 5 com_comando !
 d# 1 com_start !
 d# 0 com_start !
 ;
 
 : EnviarPconsumida
-h# 37 com_datos !
+Pconsu @ com_datos !
 d# 6 com_comando !
 d# 1 com_start !
 d# 0 com_start !
 ;
-
 : EnviarCpotencia
-h# 38 com_datos !
+CPoten @ com_datos !
 d# 7 com_comando !
 d# 1 com_start !
 d# 0 com_start !
 ;
 
 : EnviarTetha
-h# 39 com_datos !
+Tetha @ com_datos !
 d# 8 com_comando !
 d# 1 com_start !
 d# 0 com_start !
 ;
 
 : EnviarFhi
-h# 41 com_datos !
+Fhi @ com_datos !
 d# 9 com_comando !
 d# 1 com_start !
 d# 0 com_start !
